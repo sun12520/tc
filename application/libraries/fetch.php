@@ -10,12 +10,15 @@ include_once(APPPATH .'libraries//simple_html_dom.php');
 function fetch_jd($url) {
     $jd_price_ini = 'http://p.3.cn/prices/mgets?type=1&skuIds=J_';
 
+    log_message('error',$url);
+    
     $urlarr = parse_url($url);
     $path = $urlarr['path'];
     //echo $path;
     $str = explode(".", $path);
     $spid = substr($str[0], 1);
 
+    log_message('error',$spid);
 
     $price_url = $jd_price_ini . $spid;
 

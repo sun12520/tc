@@ -7,6 +7,12 @@
 
 <link href="../../css/bootstrap.css" rel="stylesheet" />
 <link href="../../css/bootstrap-responsive.css" rel="stylesheet" />
+<link href="../../css/jquery.fileupload-ui.css" rel="stylesheet" />
+
 
 <script type="text/javascript" src="../../js/jquery.js"></script>
+<script type="text/javascript" src="../../js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../../js/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="../../js/jquery.fileupload.js"></script>
+</head>
 <body>

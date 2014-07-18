@@ -11,7 +11,7 @@
         //alert($spurl);
         $spdata = {url: $spurl};
 
-        $posturl = "http://localhost/test.php";
+        $posturl = "http://localhost/tucao/index.php/dealass/get_jd_info";
         $.post($posturl, $spdata, function(data, status) {
             //alert("Data: " + data + "\nStatus: " + status);
 
@@ -60,27 +60,55 @@
                     <form class="form-group-sm" role="form">
                         <div class="form-group">
                             <div class="col-md-8" style="padding:10px">
-                                <input class="form-control" id="title" placeholder="Email" value="商品标题">
+                                <input class="form-control" id="title" placeholder="title">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-5" style="padding:10px">
-                                <input  class="form-control" id="price" placeholder="Password" value="2700">
+                                <input  class="form-control" id="price" placeholder="price">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-3" style="padding:10px">
-                                <input  class="form-control" id="inputPassword3" placeholder="Password" value="京东">
+                                <input  class="form-control" id="location" placeholder="location" value="京东">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-8" style="padding:10px">
-                                <input  class="form-control" id="lb" placeholder="Password" value="京东">
+                                <input  class="form-control" id="lb" placeholder="Password">
                             </div>
                         </div>
                     </form>
                 </td>
+
+            </tr>
+            <tr>
+
             </tr>
         </table>
     </div>
+
+</div>
+<div style="padding-top: 80px">
+    <table>
+        <tr>
+            <td>
+                <select>
+                    <option>发票图片</option>
+                    <option>购买截图</option>
+                </select>
+            </td>
+            <td>
+                <!--<?php echo $error; ?>-->
+
+                <?php echo form_open_multipart('upload/do_upload'); ?>
+
+                <input type="file" name="userfile" size="20" />
+
+                <input type="submit" value="upload" />
+
+                </form>
+            </td>
+        </tr>
+    </table>
 </div>
