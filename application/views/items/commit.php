@@ -47,10 +47,10 @@
                 <td>地域：</td>
                 <td style="width:1000px">
                     <label class="radio-inline">
-                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked="checked"> 国内
+                        <input type="radio" name="inlineRadioOptions" id="incountry" value="option1" checked="checked"> 国内
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 海淘
+                        <input type="radio" name="inlineRadioOptions" id="outcountry" value="option2"> 海淘
                     </label>
                 </td>
             </tr>
