@@ -25,7 +25,8 @@ class Assess extends CI_Controller {
         $this->load->view('pages/' . $page, $data);
         $this->load->view('templates/footer', $data);
     }
-
+    
+    
     public function commit() {
         $data['title'] = "Commit";
 
