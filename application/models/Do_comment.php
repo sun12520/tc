@@ -20,9 +20,9 @@ class Do_Comment extends CI_Model {
 
     function get_comment($ass_id) {
         $ass_sql = 'select * from comment where assess_id='.$ass_id.' order by comm_date DESC';
-        $query = $this->db->query($ass_sql);
+        $comm_list = $this->db->query($ass_sql)->result();
 
-        return $query;
+        return $comm_list;
         /**
           foreach ($query->result() as $row) {
           echo $row->title;
@@ -33,13 +33,19 @@ class Do_Comment extends CI_Model {
          */
     }
 
-    function insert_comment() {
-        $this->user_id = $this->input->post('user_id');
-        $this->assess_id = $this->input->post('assess_id');
-        $this->comm_content = $this->input->post('comm_content');
-        $this->comm_date = time();
+    function insert_comment($user_id,$assess_id,$comm_content) {
 
-        $this->db->insert('comment', $this);
+        $time = time();
+        
+        $comm_data = array(
+            'user_id' => $user_id,
+            'assess_id'=>$assess_id,
+            'comm_content'=>$comm_content,
+            'comm_date'=>$time
+        );
+
+        $this->db->insert('comment', $comm_data);
+        return $time;
     }
 
     function del_comment($comment_id = '') {

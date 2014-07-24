@@ -81,7 +81,21 @@ class Do_assess extends CI_Model {
         //$this->status = $keyId;
         $this->ci_date = time();
 
-        $this->db->insert('Assess', $this);
+        $ass_data = array(
+            'user_id' => $userId,
+            'title'=>$title,
+            'Content'=>$Content,
+            'price'=>$price,
+            'location'=>$location,
+            'pzType'=>$pzType,
+            'pzPicPath'=>$pzPicPath,
+            'tag'=>$tag,
+            'status'=>$status,
+            'ci_date'=>time()
+        );
+        
+        
+        $this->db->insert('assess', $ass_data);
     }
 
     function del_ass($assess_id) {
@@ -129,5 +143,30 @@ class Do_assess extends CI_Model {
         $this->db->where('assess_Id', $assess_Id);
         $this->db->update('assess', $data);
     }
+    
+    function zan_ass($assess_id) {
+        /**
+         * 更新吐槽攒数量状态
+         */
+        
+        $sql = 'select zan from assess where assess_id ='.$assess_id;
+        $query = $this->db->query($sql);
+        
+        foreach ($query->result() as $row) {
+          $num_now =  $row->zan;
+          }
+        
+        $num = $num_now + 1;
+        $data = array(
+            'zan' => $num,
+        );
+
+        $this->db->where('assess_id', $assess_id);
+        $this->db->update('assess', $data);
+        
+        return $num;
+        
+    }
+    
 
 }

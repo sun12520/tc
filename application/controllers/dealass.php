@@ -13,6 +13,7 @@ class dealass extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('Do_assess');
+        $this->load->helper('url');
     }
 
     public function get_jd_info() {
@@ -50,7 +51,7 @@ class dealass extends CI_Controller {
          * 查询展示吐槽
          */
         $data['title'] = '查询吐槽列表';
-        $status = 1;
+        $status = 0;
         $ass_list = $this->Do_assess->get_ass($status);
 
         $data['ass_list'] = $ass_list;
@@ -62,6 +63,11 @@ class dealass extends CI_Controller {
         
     }
 
+    public function ass_zan($assess_id){
+        $num = $this->Do_assess->zan_ass($assess_id);
+        echo $num;
+    }
+    
     public function commit_view() {
         /**
          * 吐槽提交后处理函数
@@ -72,7 +78,7 @@ class dealass extends CI_Controller {
         $price = $this->input->post('price');
         $location = $this->input->post('location');
         $lb = $this->input->post('lb');
-        $pztype = $this->input->post('type');
+        $pzType = $this->input->post('type');
         $content = $this->input->post('content');
 
         //echo $title . '<br />';
@@ -83,7 +89,7 @@ class dealass extends CI_Controller {
         //echo $content . '<br />';
 
         if (isset($_FILES['userfile']) && $_FILES['userfile']['error'] == 0) {
-            print_r($_FILES['userfile']) . '<br />';
+            //print_r($_FILES['userfile']) . '<br />';
             $file_name = $_FILES['userfile']['name'];
             $size = $_FILES['userfile']['size'];
             $type = $_FILES['userfile']['type'];
@@ -98,10 +104,14 @@ class dealass extends CI_Controller {
             move_uploaded_file($original, './uploads/' . basename($file_name));
         }
         $picpath = $md5;
-        $tag = '奇葩！';
+        $tag = '奇葩';
         $status = 0;
-
-        $this->Do_assess->insert_ass($title, $userId, $content, $price, $location, $pztype, $picpath, $tag, $status);
+        //echo "Before insert!";
+        $this->Do_assess->insert_ass($title, $userId, $content, $price, $location, $pzType, $picpath, $tag, $status);
+        
+        
+        redirect('dealass/showass');
+        
     }
 
 }

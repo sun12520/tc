@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50158
 File Encoding         : 65001
 
-Date: 2014-07-21 17:40:13
+Date: 2014-07-25 16:35:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,8 +26,37 @@ CREATE TABLE `comment` (
   `comm_content` varchar(255) NOT NULL,
   `comm_date` int(11) NOT NULL,
   PRIMARY KEY (`comment_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of comment
 -- ----------------------------
+INSERT INTO `comment` VALUES ('1', '1', '10000000', '吐槽太扯淡了啊，不客观', '1406253341');
+INSERT INTO `comment` VALUES ('2', '1', '200000000', '说的很好 解气！', '1406253445');
+INSERT INTO `comment` VALUES ('3', '1', '30000000', '', '1406269672');
+INSERT INTO `comment` VALUES ('4', '1', '30000000', '擦擦擦擦擦擦擦', '1406269992');
+INSERT INTO `comment` VALUES ('5', '1', '30000000', '5443333', '1406270058');
+INSERT INTO `comment` VALUES ('6', '1', '30000000', '继续测试', '1406270161');
+INSERT INTO `comment` VALUES ('7', '1', '30000000', '建军节建军节', '1406270232');
+INSERT INTO `comment` VALUES ('8', '1', '30000000', '行行行行行行', '1406270359');
+INSERT INTO `comment` VALUES ('9', '1', '30000000', '在啧啧啧啧啧啧啧啧啧', '1406270422');
+INSERT INTO `comment` VALUES ('10', '1', '30000000', '该嘎嘎嘎嘎嘎嘎嘎嘎嘎', '1406270467');
+INSERT INTO `comment` VALUES ('11', '1', '30000000', 'tttt吞吞吐吐吞吞吐吐', '1406271248');
+INSERT INTO `comment` VALUES ('12', '1', '30000000', '元一样一样一样一样', '1406271476');
+INSERT INTO `comment` VALUES ('13', '1', '30000000', '呃呃呃呃呃呃呃呃呃', '1406271579');
+INSERT INTO `comment` VALUES ('14', '1', '30000000', '元元一样一样一样一样', '1406271922');
+INSERT INTO `comment` VALUES ('15', '1', '30000000', '噢噢噢噢噢噢噢噢哦哦哦', '1406272017');
+INSERT INTO `comment` VALUES ('16', '1', '30000000', '反反复复凤飞飞凤飞飞', '1406272270');
+INSERT INTO `comment` VALUES ('17', '1', '30000000', '后好嘿嘿嘿嘿嘿嘿', '1406272917');
+INSERT INTO `comment` VALUES ('18', '1', '30000000', '快快快快快快快快快快', '1406273666');
+INSERT INTO `comment` VALUES ('19', '1', '30000000', '版本八佰伴八佰伴', '1406273720');
+INSERT INTO `comment` VALUES ('20', '1', '30000000', '哈哈哈哈哈哈哈', '1406274091');
+INSERT INTO `comment` VALUES ('21', '1', '30000000', 'kkkkkkkkkkkkkkkkkk', '1406275332');
+INSERT INTO `comment` VALUES ('22', '1', '30000000', 'gagagagag', '1406275406');
+INSERT INTO `comment` VALUES ('23', '1', '30000000', '上市公司公司', '1406275592');
+INSERT INTO `comment` VALUES ('24', '1', '30000000', '该施工方上到公司', '1406275875');
+INSERT INTO `comment` VALUES ('25', '1', '30000000', '到底上根深蒂固', '1406275966');
+INSERT INTO `comment` VALUES ('26', '1', '30000000', '该说什么', '1406275975');
+INSERT INTO `comment` VALUES ('27', '1', '30000000', '还多少大概', '1406275978');
+INSERT INTO `comment` VALUES ('28', '1', '30000000', '阿大声道', '1406276730');
+INSERT INTO `comment` VALUES ('29', '1', '30000000', '覆盖撒旦', '1406276736');
