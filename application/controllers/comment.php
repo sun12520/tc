@@ -11,6 +11,11 @@ class Comment extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('Do_comment');
+        $this->load->library('Userlib');
+        
+        if (!$this->userlib->islogin()) {
+            redirect('user');
+        }
     }
 
     function index() {

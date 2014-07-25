@@ -29,7 +29,7 @@ class Do_assess extends CI_Model {
     //    return $query->result();
     //}
 
-    function get_ass($status) {
+    function get_ass($status,$user_id = '') {
 
         /*
          * 查询吐槽
@@ -40,6 +40,11 @@ class Do_assess extends CI_Model {
         $orderby = 'ci_date';
         $direction = 'desc';
 
+        if ($user_id)
+        {
+            $this->db->where('user_id',$user_id);
+        }
+        
         $data_list = $this->db
                 ->where('status', $status)
                 ->order_by('ci_date', $direction)
@@ -105,6 +110,8 @@ class Do_assess extends CI_Model {
         $this->db->delete('assess', array('assess_id' => $assess_id));
     }
 
+    
+    //废弃
     function ass_review($status, $user_id = '') {
         /*
          * 查询审核吐槽
@@ -129,18 +136,18 @@ class Do_assess extends CI_Model {
          */
     }
 
-    function update_ass($assess_Id, $status) {
+    function update_ass($assess_id, $status,$review_content = '') {
         /**
          * 更新吐槽审核状态
          */
         $data = array(
             'status' => $status,
             'review_date' => time(),
-            'review_content' => $this->input->post('review_content'),
+            'review_content' => $review_content,
                 //'date' => $date
         );
 
-        $this->db->where('assess_Id', $assess_Id);
+        $this->db->where('assess_id', $assess_id);
         $this->db->update('assess', $data);
     }
     

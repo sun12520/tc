@@ -13,7 +13,12 @@ class dealass extends CI_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('Do_assess');
-        $this->load->helper('url');
+        $this->load->library('Userlib');
+
+        if (!$this->userlib->islogin()) {
+            redirect('user');
+        }
+        //$this->load->helper('url');
     }
 
     public function get_jd_info() {
@@ -46,28 +51,26 @@ class dealass extends CI_Controller {
       }
      * */
 
-    public function showass(){
+    public function showass() {
         /**
          * 查询展示吐槽
          */
         $data['title'] = '查询吐槽列表';
-        $status = 0;
+        $status = 1;
         $ass_list = $this->Do_assess->get_ass($status);
 
         $data['ass_list'] = $ass_list;
-        
+
         $this->load->view('templates/header', $data);
         $this->load->view('items/listass', $data);
         $this->load->view('templates/footer', $data);
-        
-        
     }
 
-    public function ass_zan($assess_id){
+    public function ass_zan($assess_id) {
         $num = $this->Do_assess->zan_ass($assess_id);
         echo $num;
     }
-    
+
     public function commit_view() {
         /**
          * 吐槽提交后处理函数
@@ -108,10 +111,9 @@ class dealass extends CI_Controller {
         $status = 0;
         //echo "Before insert!";
         $this->Do_assess->insert_ass($title, $userId, $content, $price, $location, $pzType, $picpath, $tag, $status);
-        
-        
+
+
         redirect('dealass/showass');
-        
     }
 
 }

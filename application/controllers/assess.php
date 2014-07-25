@@ -12,6 +12,17 @@
 
 class Assess extends CI_Controller {
 
+    function __construct() {
+        parent::__construct();
+        $this->load->library('Userlib');
+
+        if (!$this->userlib->islogin()) {
+            redirect('user');
+        }
+        //$this->load->model('Do_assess');
+        //$this->load->helper('url');
+    }
+
     public function view($page = 'home') {
         if (!file_exists(APPPATH . '/views/pages/' . $page . '.php')) {
             // 页面不存在
@@ -25,8 +36,7 @@ class Assess extends CI_Controller {
         $this->load->view('pages/' . $page, $data);
         $this->load->view('templates/footer', $data);
     }
-    
-    
+
     public function commit() {
         $data['title'] = "Commit";
 
@@ -83,6 +93,38 @@ class Assess extends CI_Controller {
         }
         imagepng($im);
         imagedestroy($im);
+    }
+
+    public function search() {
+        require_once(APPPATH . 'libraries/sphinxapi.php');
+
+        //require ’sphinxapi.php’;
+        //$s = new SphinxClient();
+        //$s->SetServer('127.0.0.1', 3312);
+        //$result = $s->Query('test');
+        //$mode = SPH_MATCH_ALL;
+
+
+
+
+        $cl = new SphinxClient ();
+        $cl->SetServer('127.0.0.1', 9312);
+        $cl->SetConnectTimeout(3);
+        $cl->SetArrayResult(true);
+        $cl->SetMatchMode(SPH_MATCH_BOOLEAN);
+        $q = '纯粹|大叔';
+        $res = $cl->Query($q, "tucao");
+
+
+//var_dump($result);
+
+        $data['title'] = "Commit";
+        $data['res'] = $res;
+        $data['q'] = $q;
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('pages/home', $data);
+        $this->load->view('templates/footer', $data);
     }
 
 }

@@ -8,31 +8,47 @@
 
 //require_once(APPPATH . 'libraries/fetch.php');
 
-$this->load->model('Do_assess','ass');
+
 
 class review extends CI_Controller {
-    
-    function show_assess($status = 0){
+
+    function __construct() {
+        parent::__construct();
+        $this->load->model('Do_assess', 'ass');
+        //$this->load->helper('url');
+    }
+
+    function show_assess($status = 0) {
         /**
          * 显示需要审核的吐槽
          */
-        
         $datalist = $this->ass->get_ass($status);
-        $this->load->view('items/checkc', $data);
-        
+        $data = array();
+        $data['ass_list'] = $datalist;
+        $data['title'] = '待审核列表';
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('admin/assess', $data);
+        $this->load->view('templates/footer', $data);
+
+
+        //$this->load->view('items/checkc');
     }
-    
-    
-    function review_assess($assess_id,$result){
+
+    function review_assess($assess_id, $result) {
         /**
          * 审核吐槽，变更状态
          */
+        //echo $assess_id."<br>";
+        //echo $result;
+        $this->ass->update_ass($assess_id,$result);
+        
     }
-    
-    function del_assess($assess_id){
+
+    function del_assess($assess_id) {
         /**
          * 删除吐槽
          */
     }
-    
+
 }

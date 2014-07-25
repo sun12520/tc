@@ -1,42 +1,40 @@
-<!-- Button to trigger modal -->
-<script type="text/javascript">
+<?php
 
-$('#myModal').modal('toggle');
- //   $(document).ready(function() {
-   //     
-   // });
-</script>
-<h2>创建模态框（Modal）</h2>
-<!-- 按钮触发模态框 -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" 
-   data-target="#myModal">
-   开始演示模态框
-</button>
+if ($res === false) {
+    //print "Query failed: " . $cl->GetLastError() . ".\n";
+    print "Query failed: ";
+} else {
+    //if ($cl->GetLastWarning())
+    //print "WARNING: " . $cl->GetLastWarning() . "\n\n";
+    //print "WARNING: ";
 
-<!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
-   aria-labelledby="myModalLabel" aria-hidden="true">
-   <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
-            <button type="button" class="close" 
-               data-dismiss="modal" aria-hidden="true">
-                  &times;
-            </button>
-            <h4 class="modal-title" id="myModalLabel">
-               模态框（Modal）标题
-            </h4>
-         </div>
-         <div class="modal-body">
-            在这里添加一些文本
-         </div>
-         <div class="modal-footer">
-            <button type="button" class="btn btn-default" 
-               data-dismiss="modal">关闭
-            </button>
-            <button type="button" class="btn btn-primary">
-               提交更改
-            </button>
-         </div>
-      </div><!-- /.modal-content -->
-</div><!-- /.modal -->
+    print "Query '$q' retrieved $res[total] of $res[total_found] matches in $res[time] sec.\n";
+    print "Query stats:\n";
+    if (is_array($res["words"]))
+        foreach ($res["words"] as $word => $info)
+            print "    '$word' found $info[hits] times in $info[docs] documents\n";
+    print "\n";
+    echo '<br>';
+
+    if (is_array($res["matches"])) {
+        $n = 1;
+        print "Matches:<br>";
+        foreach ($res["matches"] as $docinfo) {
+            print "$n. doc_id=$docinfo[id], weight=$docinfo[weight]";
+            foreach ($res["attrs"] as $attrname => $attrtype) {
+                $value = $docinfo["attrs"][$attrname];
+                if ($attrtype == SPH_ATTR_MULTI || $attrtype == SPH_ATTR_MULTI64) {
+                    $value = "(" . join(",", $value) . ")";
+                } else {
+                    if ($attrtype == SPH_ATTR_TIMESTAMP)
+                        $value = date("Y-m-d H:i:s", $value);
+                }
+                print ", $attrname=$value";
+            }
+            print "\n";
+            echo '<br>';
+            $n++;
+        }
+    }
+}
+?>
