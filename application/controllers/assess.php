@@ -51,7 +51,23 @@ class Assess extends CI_Controller {
 
         //$this->load->view('templates/header', $data);
         $this->load->view('items/checkc', $data);
+
+
+
+
+
         //$this->load->view('templates/footer', $data);
+    }
+
+    public function newck() {
+        require (APPPATH . 'libraries/ValidateCode.php');  //先把类包含进来，实际路径根据实际情况进行修改。  
+        
+        //echo BASEPATH;
+        session_start();
+        $_vc = new ValidateCode();      //实例化一个对象  
+        $_vc->doimg();
+        $_SESSION['code'] = $_vc->getCode();
+        
     }
 
     public function ck() {
@@ -111,8 +127,8 @@ class Assess extends CI_Controller {
         $cl->SetServer('127.0.0.1', 9312);
         $cl->SetConnectTimeout(3);
         $cl->SetArrayResult(true);
-        $cl->SetMatchMode(SPH_MATCH_BOOLEAN);
-        $q = '纯粹|大叔';
+        $cl->SetMatchMode(SPH_MATCH_ANY);
+        $q = '纯粹大叔大叔大叔戒指';
         $res = $cl->Query($q, "tucao");
 
 

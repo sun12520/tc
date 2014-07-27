@@ -14,10 +14,10 @@
         </form>
 
 
-        <?
+        <?PHP
         session_start();
-        $AuthInput = $_POST["AuthInput"];
-        $action = $_GET["action"];
+        //$AuthInput = $_POST["AuthInput"];
+        //$action = $_GET["action"];
         ?>
         <script language="javascript">
             function lyalert() {
@@ -31,14 +31,14 @@
         <form name="addform" method="post" action="?action=save" id="addform" onsubmit="return lyalert()">
             <table width="500" border="1" cellpadding="5" cellspacing="0">
                 <tr><td>验证码：</td>
-                    <td><input name="AuthInput" type="text" id="AuthInput"  size="8" maxlength="4" /><script>document.write("<img src=\"http://localhost/tucao/index.php/assess/ck?n=", Math.random(), "\" />");</script></td></tr>
+                    <td><input name="AuthInput" type="text" id="AuthInput"  size="8" maxlength="6" /><script>document.write("<img src=\"http://localhost/tucao/index.php/assess/ck?n=", Math.random(), "\" />");</script></td></tr>
                 <tr><td colspan="2" align="center"><input type="submit" name="Button1" value="确定" id="Button1" /></td>
                 </tr>
             </table>
             <p>&nbsp;</p>
         </form>
 
-
+        <label><img src="http://localhost/tucao/index.php/assess/newck" onclick="javascript:this.src = 'http://localhost/tucao/index.php/assess/newck?tm=' + Math.random();" /></label> 
 
 
         <script>
@@ -48,23 +48,23 @@
         </script>
 
 
-        <?
-        if($action=='save')
-        {
-        if ($_SESSION["Authnum"] != $AuthInput)
-        {
-        ?>
-        <script language="javascript">
-            alert("验证码输入不正确");
-        </script>
-        <? 
+        <?php
+        if (isset($_GET["action"]) && $_GET["action"] == 'save') {
+            echo $_POST["AuthInput"];
+            echo $_SESSION["code"];
+            if ($_SESSION["code"] != $_POST["AuthInput"]) {
+                ?>
+                <script language="javascript">
+                    alert("验证码输入不正确");
+                </script>
+                <?php
+            } else {
+                ?>  
+                <script language="javascript">
+                    alert("提交成功！");
+                </script>
+            <?php }
         }
-        else
-        {
-        ?>  
-        <script language="javascript">
-            alert("提交成功！");
-        </script>
-
+        ?>
     </body>
 </html>

@@ -48,10 +48,11 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '10.176.40.132';
-$db['default']['username'] = 'xiangyang.yang';
-$db['default']['password'] = 'yxiang888';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '123456';
 $db['default']['database'] = 'tccenter';
+$db['default']['port'] = '3307';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
