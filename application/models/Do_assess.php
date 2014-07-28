@@ -65,13 +65,13 @@ class Do_assess extends CI_Model {
          */
     }
 
-    function insert_ass($title, $userId, $Content, $price, $location, $pzType, $pzPicPath, $tag, $status) {
+    function insert_ass($title, $user_id, $Content, $price, $location, $pzType, $pzPicPath, $tag, $status) {
         /*
          * 新增吐槽
          */
 
 
-        $this->user_id = $userId;
+        $this->user_id = $user_id;
         $this->title = $title; // 请阅读下方的备注
         $this->Content = $Content;
         //$this->country = $country;
@@ -87,7 +87,7 @@ class Do_assess extends CI_Model {
         $this->ci_date = time();
 
         $ass_data = array(
-            'user_id' => $userId,
+            'user_id' => $user_id,
             'title'=>$title,
             'Content'=>$Content,
             'price'=>$price,

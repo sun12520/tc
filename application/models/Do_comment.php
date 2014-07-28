@@ -33,13 +33,14 @@ class Do_Comment extends CI_Model {
          */
     }
 
-    function insert_comment($user_id,$assess_id,$comm_content) {
+    function insert_comment($user_id,$assess_id,$comm_content,$user_name) {
 
         $time = time();
         
         $comm_data = array(
             'user_id' => $user_id,
             'assess_id'=>$assess_id,
+            'user_name'=>$user_name,
             'comm_content'=>$comm_content,
             'comm_date'=>$time
         );

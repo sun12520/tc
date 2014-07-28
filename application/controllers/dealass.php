@@ -34,23 +34,6 @@ class dealass extends CI_Controller {
         echo $data;
     }
 
-    /*     * *
-      public function file() {
-      $uploaddir = '../upload/';
-
-      foreach ($_FILES as $upfile) {
-      $uploadfile = $uploaddir . $upfile['name'];
-
-      if (move_uploaded_file($upfile['tmp_name'], $uploadfile))
-      echo "true";
-      else {
-      echo $_FILES['userfile']['error']; //具体见下面的注释
-      echo "<br/>false";
-      }
-      }
-      }
-     * */
-
     public function showass() {
         /**
          * 查询展示吐槽
@@ -76,7 +59,8 @@ class dealass extends CI_Controller {
          * 吐槽提交后处理函数
          */
         $url = $this->input->post('url');
-        $userId = '10000000';
+        $user_id = $this->session->userdata('user_id');
+        $user_name = $this->session->userdata('user_name');
         $title = $this->input->post('title');
         $price = $this->input->post('price');
         $location = $this->input->post('location');
@@ -110,7 +94,7 @@ class dealass extends CI_Controller {
         $tag = '奇葩';
         $status = 0;
         //echo "Before insert!";
-        $this->Do_assess->insert_ass($title, $userId, $content, $price, $location, $pzType, $picpath, $tag, $status);
+        $this->Do_assess->insert_ass($title, $user_id, $content, $price, $location, $pzType, $picpath, $tag, $status);
 
 
         redirect('dealass/showass');

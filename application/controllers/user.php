@@ -44,14 +44,17 @@ class user extends CI_Controller {
 
         $result = $this->Do_user->checkPasswd($username, $password);
         if ($result) {
+            $data['user_id'] = $result;
             $this->session->set_userdata($data);
         }
         redirect('user');
         //echo $this->session->userdata('username');
+        //echo $this->session->userdata('user_id');
+        //echo $this->session->userdata('password');
     }
 
     function logout() {
-        $array_items = array('username' => '', 'password' => '');
+        $array_items = array('username' => '', 'password' => '','user_id'=>'');
         $this->session->unset_userdata($array_items);
         //$aa = $this->session->all_userdata();
         //print_r($aa);
@@ -75,14 +78,22 @@ class user extends CI_Controller {
         //echo $username;
         //echo $password;
 
-        $this->Do_user->regUser($username, $password);
-
+        $user_id = $this->Do_user->regUser($username, $password);
+        //echo $user_id;
         $data = array(
             'username' => $username,
-            'password' => $password
+            'password' => $password,
+            'user_id' => $user_id,
         );
         $this->session->set_userdata($data);
-        redirect('user');
+        
+        
+        
+        
+        
+        
+        
+        //redirect('user');
     }
 
 }

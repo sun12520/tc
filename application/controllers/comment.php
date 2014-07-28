@@ -31,6 +31,7 @@ class Comment extends CI_Controller {
         foreach ($comm_list as $row)
         {
             $comm_arr[$n]['user_id'] = $row->user_id;
+            $comm_arr[$n]['user_name'] = $row->user_name;
             $comm_arr[$n]['comm_content'] = $row->comm_content;
             $comm_arr[$n]['comm_date'] = $row->comm_date;
             $n++;
@@ -47,10 +48,11 @@ class Comment extends CI_Controller {
         //提交评论
         
         $user_id = $this->input->post('user_id');
+        $user_name = $this->input->post('user_name');
         $assess_id = $this->input->post('assess_id');
         $comm_content = $this->input->post('comm_content');
         
-        $result = $this->Do_comment->insert_comment($user_id,$assess_id,$comm_content);
+        $result = $this->Do_comment->insert_comment($user_id,$assess_id,$comm_content,$user_name);
         echo $result;
         
     }

@@ -54,7 +54,7 @@
             $code = md5($ip.'grandcloudcn');
             //echo $code;
             echo $_SESSION[$code];
-            if ($_SESSION["code"] != $_POST["AuthInput"]) {
+            if ($_SESSION[$code] != $_POST["AuthInput"]) {
                 ?>
                 <script language="javascript">
                     alert("验证码输入不正确");

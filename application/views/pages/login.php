@@ -23,7 +23,7 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default">登录</button>
-      <a href="http://localhost/tucao/index.php/user/register"><button type="button" class="btn btn-default">注册</button></a>
+      <a href="http://10.241.226.31/tucao/index.php/user/register"><button type="button" class="btn btn-default">注册</button></a>
     </div>
   </div>
 </form>

@@ -7,18 +7,16 @@
 <base href="<?php  echo base_url();?>"/>
 
 
-<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/bootstrap.css" rel="stylesheet" />
 <link href="css/bootstrap-responsive.css" rel="stylesheet" />
-<link href="css/docs.css" rel="stylesheet" />
+<!--<link href="css/docs.css" rel="stylesheet" />-->
 
 
 
 
 <script type="text/javascript" src="js/jquery.js"></script>
 
-<script type="text/javascript" src="js/jquery.ui.widget.js"></script>
-<script type="text/javascript" src="js/jquery.iframe-transport.js"></script>
-<script type="text/javascript" src="js/jquery.fileupload.js"></script>
-<script type="text/javascript" src="js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
 </head>
 <body>

@@ -1,10 +1,59 @@
 
-<form class="navbar-form navbar-left" role="search">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search">
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search" action="http://10.241.226.31/tucao/index.php/assess/search" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" name="search" id="search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
 
 
 
@@ -49,9 +98,9 @@
 <br>
 <br>
 <p>
-    <a href="http://localhost/tucao/index.php/assess/commit"><button class="btn btn-large btn-primary" type="button">吐槽入口</button></a>
-    <a href="http://localhost/tucao/index.php/admin/review/show_assess"><button class="btn btn-large" type="button">待审核吐槽</button></a>
-    <a href="http://localhost/tucao/index.php/user/logout"><button class="btn btn-large" type="button">注销</button></a>
+    <a href="http://10.241.226.31/tucao/index.php/assess/commit"><button class="btn btn-large btn-primary" type="button">吐槽入口</button></a>
+    <a href="http://10.241.226.31/tucao/index.php/admin/review/show_assess"><button class="btn btn-large" type="button">待审核吐槽</button></a>
+    <a href="http://10.241.226.31/tucao/index.php/user/logout"><button class="btn btn-large" type="button">注销</button></a>
 </p>
 <br>
 <br>
@@ -68,7 +117,7 @@
 <script>
 
     function zan(obj) {
-        var zan = 'http://localhost/tucao/index.php/dealass/ass_zan/' + obj.id;
+        var zan = 'http://10.241.226.31/tucao/index.php/dealass/ass_zan/' + obj.id;
         var zanid = 'zan' + obj.id;
 
         $.get(zan, function(data, status) {
@@ -86,15 +135,19 @@
 
         //alert(obj.name);
 
-        var post_comm = 'http://localhost/tucao/index.php/comment/ci_comment';
+        var post_comm = 'http://10.241.226.31/tucao/index.php/comment/ci_comment';
         var comm_content = document.getElementById("comm_content").value;
-
+        var username = "<?php echo $this->session->userdata('username') ?>";
+        var user_id = <?php echo $this->session->userdata('user_id') ?>;
         //alert(comm_content);
         //var date = new Date().getTime();
 
+
+
         var comminfo = {
             assess_id: obj.name,
-            user_id: 30000000,
+            user_name: username,
+            user_id: user_id,
             comm_content: comm_content
                     //comm_date: date
         };
@@ -110,7 +163,7 @@
             success: function(data) {//后台处理数据成功后的回调函数
 
                 //alert(data);
-                var str = $('<tr><td>' + '30000000' + '</td><td>' + comm_content + '</td><td>' + data + '</td></tr>');
+                var str = $('<tr><td>' + username + '</td><td>' + comm_content + '</td><td>' + data + '</td></tr>');
                 str.insertAfter("#submitcontent");
                 document.getElementById("comm_content").value = '';
             },
@@ -131,7 +184,7 @@
             //alert(document.getElementById("comm_tab").title);
             //if (document.getElementById("comm_tab").title == 'none')
             //{
-            var get_comm = 'http://localhost/tucao/index.php/comment/show_comment/' + obj.id;
+            var get_comm = 'http://10.241.226.31/tucao/index.php/comment/show_comment/' + obj.id;
             document.getElementById("subcomm").name = obj.id + '';
             //alert(document.getElementById("subcomm").value);
             //alert(get_comm);
@@ -163,7 +216,7 @@
                          */
 
 
-                        var commstr = $('<tr><td>' + commobj[i]['user_id'] + '</td><td>' + commobj[i]['comm_content'] + '</td><td>' + commobj[i]['comm_date'] + '</td></tr>');
+                        var commstr = $('<tr><td>' + commobj[i]['user_name'] + '</td><td>' + commobj[i]['comm_content'] + '</td><td>' + commobj[i]['comm_date'] + '</td></tr>');
                         var element = document.getElementById("comm_tbody");
                         //element.appendChild(paratr);
 

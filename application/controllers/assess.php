@@ -65,8 +65,8 @@ class Assess extends CI_Controller {
         require (APPPATH . 'libraries/ValidateCode.php');  //先把类包含进来，实际路径根据实际情况进行修改。  
         //echo BASEPATH;
         session_start();
-        $ip =  $this->getIP();
-        $code = md5($ip.'grandcloudcn');
+        $ip = $this->getIP();
+        $code = md5($ip . 'grandcloudcn');
         //echo $code;
         $_vc = new ValidateCode();      //实例化一个对象  
         $_vc->doimg();
@@ -137,6 +137,7 @@ class Assess extends CI_Controller {
         //$result = $s->Query('test');
         //$mode = SPH_MATCH_ALL;
 
+        $q = $this->input->post('search');
 
 
 
@@ -145,7 +146,7 @@ class Assess extends CI_Controller {
         $cl->SetConnectTimeout(3);
         $cl->SetArrayResult(true);
         $cl->SetMatchMode(SPH_MATCH_ANY);
-        $q = '纯粹大叔大叔大叔戒指';
+        //$q = '突突突';
         $res = $cl->Query($q, "tucao");
 
 

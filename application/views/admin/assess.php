@@ -36,7 +36,7 @@
 <script>
     function access(obj){
         var result = 1;
-        var review = 'http://localhost/tucao/index.php/admin/review/review_assess/' + obj.id + '/'+result;
+        var review = 'http://10.241.226.31/tucao/index.php/admin/review/review_assess/' + obj.id + '/'+result;
         
         $.get(review, function(data, status) {
             //alert("Data: " + data + "\nStatus: " + status);
