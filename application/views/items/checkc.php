@@ -51,7 +51,9 @@
         <?php
         if (isset($_GET["action"]) && $_GET["action"] == 'save') {
             echo $_POST["AuthInput"];
-            echo $_SESSION["code"];
+            $code = md5($ip.'grandcloudcn');
+            //echo $code;
+            echo $_SESSION[$code];
             if ($_SESSION["code"] != $_POST["AuthInput"]) {
                 ?>
                 <script language="javascript">

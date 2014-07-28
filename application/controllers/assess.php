@@ -48,6 +48,8 @@ class Assess extends CI_Controller {
 
     public function checkcode() {
         $data['title'] = "Commit";
+        $ip = $this->getIP();
+        $data['ip'] = $ip;
 
         //$this->load->view('templates/header', $data);
         $this->load->view('items/checkc', $data);
@@ -61,13 +63,28 @@ class Assess extends CI_Controller {
 
     public function newck() {
         require (APPPATH . 'libraries/ValidateCode.php');  //先把类包含进来，实际路径根据实际情况进行修改。  
-        
         //echo BASEPATH;
         session_start();
+        $ip =  $this->getIP();
+        $code = md5($ip.'grandcloudcn');
+        //echo $code;
         $_vc = new ValidateCode();      //实例化一个对象  
         $_vc->doimg();
-        $_SESSION['code'] = $_vc->getCode();
-        
+        //$time = time();
+        $_SESSION[$code] = $_vc->getCode();
+    }
+
+    function getIP() {
+        global $ip;
+        if (getenv("HTTP_CLIENT_IP"))
+            $ip = getenv("HTTP_CLIENT_IP");
+        else if (getenv("HTTP_X_FORWARDED_FOR"))
+            $ip = getenv("HTTP_X_FORWARDED_FOR");
+        else if (getenv("REMOTE_ADDR"))
+            $ip = getenv("REMOTE_ADDR");
+        else
+            $ip = "Unknow";
+        return $ip;
     }
 
     public function ck() {
