@@ -1,58 +1,171 @@
-<?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-echo "This is About!";
-
-
-
-
-
-if (!isset($_SESSION)) { //判断session是否开启
-    session_start(); //开启就session
-}
-$width = 70; //布画宽度
-$height = 25; //布画高度
-$length = 4; //验证码长度
-$code = getcode($length); //获取随机字符串
-$_SESSION['verfyCode'] = $code;
-
-$img = imagecreate($width, $height);
-$bgcolor = imagecolorallocate($img, 240, 240, 240);
-$rectangelcolor = imagecolorallocate($img, 150, 150, 150);
-imagerectangle($img, 1, 1, $width - 1, $height - 1, $rectangelcolor); //画边框
-for ($i = 0; $i < $length; $i++) {//循环写字
-    $codecolor = imagecolorallocate($img, mt_rand(50, 200), mt_rand(50, 128), mt_rand(50, 200));
-    $angle = rand(-20, 20);
-    $charx = $i * 15 + 8;
-    $chary = ($height + 14) / 2 + rand(-1, 1);
-    imagettftext($img, 15, $angle, $charx, $chary, $codecolor, 'C:\WINDOWS\Fonts\SIMKAI.TTF', $code[$i]);
-}
-for ($i = 0; $i < 20; $i++) {//循环画线
-    $linecolor = imagecolorallocate($img, mt_rand(0, 250), mt_rand(0, 250), mt_rand(0, 250));
-    $linex = mt_rand(1, $width - 1);
-    $liney = mt_rand(1, $height - 1);
-    imageline($img, $linex, $liney, $linex + mt_rand(0, 4) - 2, $liney + mt_rand(0, 4) - 2, $linecolor);
-}
-for ($i = 0; $i < 100; $i++) {//循环画点
-    $pointcolor = imagecolorallocate($img, mt_rand(0, 250), mt_rand(0, 250), mt_rand(0, 250));
-    imagesetpixel($img, mt_rand(1, $width - 1), mt_rand(1, $height - 1), $pointcolor);
-}
-
-function getcode($length) {//生成php随机数 
-    $pattern = '1234567890ABCDEFGHIJKLOMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz '; //字符池 
-    for ($i = 0; $i < $length; $i++) {
-        $key .= $pattern{mt_rand(0, 35)};
+<style type="text/css">
+    abbr
+    {
+        font-size: 12px;
     }
-    return $key;
-}
+    .text10pxwhite
+    {
+        font-size: 10px;
+        color: #FFFFFF;
+    }
 
-ob_clean();
-header('Content-type:image/png');
-imagepng($img);
-?>
+    .item
+    {
+        clear: both;
+        width: 240px;
+        height: 55px
+    }
+    .item_active
+    {
+        clear: both;
+        width: 240px;
+        height: 55px
+    }
+
+    .panel-body .item div text h5 a small
+    {
+        color: #333333;
+    }
+    .panel-body .item_active div text h5 a small
+    {
+        color: #FFFFFF;
+    }
+    a:hover
+    {
+        color: #FFFFFF;
+    }
+
+    .panel-body .item_active:hover
+    {
+        background-color: #D14;
+        color: #FFFFFF;
+        transition:background-color 2s;
+    }
+    
+    .detail
+    {
+        display: none;
+    }
+    .panel-body .item_active div.detail
+    {
+        display: block;
+        color: #333333;
+    }
+
+
+
+
+</style>
+
+
+
+<div class = "panel panel-default" style="margin-top:  30px;margin-left: 30px;width: 240px;height: 390px;padding-top: 5px;padding-left: 0px">
+    <div class = "panel-body" style="clear: both;padding: 0">
+        <div class="item" onmouseover="this.className = 'item_active'" onmouseout="this.className = 'item'">
+            <div id="tag" style="float: left;margin-left: 20px;margin-top: 20px">
+                <span class="glyphicon glyphicon-star"></span>
+            </div>
+            <div style="float: left;margin-left: 10px">
+                <text><h5><strong>电器</strong></text></h5>
+                <text><h5><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a></h5></text>
+                <hr style="margin: 0">
+            </div>
+            <div class="detail">
+                <div class="panel panel-default" style=" position: absolute;top: 30px;left: 270px;width: 200px;height: 390px">
+                    <div class="panel-body">
+                        Basic panel example6
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item" onmouseover="this.className = 'item_active'" onmouseout="this.className = 'item'">
+            <div id="tag" style="float: left;margin-left: 20px;margin-top: 20px">
+                <span class="glyphicon glyphicon-star"></span>
+            </div>
+            <div style="float: left;margin-left: 10px">
+                <text><h5><strong>电器</strong></text></h5>
+                <text><h5><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a></h5></text>
+                <hr style="margin: 0">
+            </div>
+            <div class="detail">
+                <div class="panel panel-default" style=" position: absolute;top: 30px;left: 270px;width: 200px;height: 390px">
+                    <div class="panel-body">
+                        Basic panel example5
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item" onmouseover="this.className = 'item_active'" onmouseout="this.className = 'item'">
+            <div id="tag" style="float: left;margin-left: 20px;margin-top: 20px">
+                <span class="glyphicon glyphicon-star"></span>
+            </div>
+            <div style="float: left;margin-left: 10px">
+                <text><h5><strong>电器</strong></text></h5>
+                <text><h5><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a></h5></text>
+                <hr style="margin: 0">
+            </div>
+            <div class="detail">
+                <div class="panel panel-default" style=" position: absolute;top: 30px;left: 270px;width: 200px;height: 390px">
+                    <div class="panel-body">
+                        Basic panel example4
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item" onmouseover="this.className = 'item_active'" onmouseout="this.className = 'item'">
+            <div id="tag" style="float: left;margin-left: 20px;margin-top: 20px">
+                <span class="glyphicon glyphicon-star"></span>
+            </div>
+            <div style="float: left;margin-left: 10px">
+                <text><h5><strong>电器</strong></text></h5>
+                <text><h5><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a></h5></text>
+                <hr style="margin: 0">
+            </div>
+            <div class="detail">
+                <div class="panel panel-default" style=" position: absolute;top: 30px;left: 270px;width: 200px;height: 390px">
+                    <div class="panel-body">
+                        Basic panel example3
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item" onmouseover="this.className = 'item_active'" onmouseout="this.className = 'item'">
+            <div id="tag" style="float: left;margin-left: 20px;margin-top: 20px">
+                <span class="glyphicon glyphicon-star"></span>
+            </div>
+            <div style="float: left;margin-left: 10px">
+                <text><h5><strong>电器</strong></text></h5>
+                <text><h5><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a></h5></text>
+                <hr style="margin: 0">
+            </div>
+            <div class="detail">
+                <div class="panel panel-default" style=" position: absolute;top: 30px;left: 270px;width: 200px;height: 390px">
+                    <div class="panel-body">
+                        Basic panel example2
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item" onmouseover="this.className = 'item_active'" onmouseout="this.className = 'item'">
+            <div id="tag" style="float: left;margin-left: 20px;margin-top: 20px">
+                <span class="glyphicon glyphicon-star"></span>
+            </div>
+            <div style="float: left;margin-left: 10px">
+                <text><h5><strong>电器</strong></text></h5>
+                <text><h5><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a><a style="margin-right: 15px;cursor:pointer"><small>手机</small></a></h5></text>
+
+            </div>
+            <div class="detail">
+                <div class="panel panel-default" style=" position: absolute;top: 30px;left: 270px;width: 200px;height: 390px">
+                    <div class="panel-body">
+                        Basic panel example1
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
