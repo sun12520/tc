@@ -10,6 +10,9 @@
     <div class="col-sm-10">
         <input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
     </div>
+    <div>
+        <input type="hidden" name="url" value="<?php echo $url ?>">
+    </div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">

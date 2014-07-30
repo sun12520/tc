@@ -197,7 +197,7 @@ class SphinxClient
 	function SphinxClient ()
 	{
 		// per-client-object settings
-		$this->_host		= "localhost";
+		$this->_host		= "10.241.226.31";
 		$this->_port		= 3312;
 
 		// per-query settings

@@ -15,8 +15,10 @@ class Assess extends CI_Controller {
         parent::__construct();
         $this->load->library('Userlib');
 
+        $url_this =  "http://".$_SERVER ['HTTP_HOST'].$_SERVER['PHP_SELF'];
+        //echo $url_this;
         if (!$this->userlib->islogin()) {
-            redirect('user');
+            redirect('user?url='.$url_this);
         }
         //$this->load->model('Do_assess');
         //$this->load->helper('url');
@@ -168,7 +170,7 @@ class Assess extends CI_Controller {
 
 //分页尺寸
         $page_size = 10;
-        $conn = mysql_connect("localhost", "root", "root") or die(mysql_error());
+        $conn = mysql_connect("10.241.226.31", "root", "root") or die(mysql_error());
         mysql_select_db("xinyang");
         $offset = ($page - 1) * $page_size;
         $query = mysql_query("select * from product limit $offset,$page_size") or die(mysql_error());

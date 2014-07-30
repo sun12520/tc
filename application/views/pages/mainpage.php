@@ -5,26 +5,47 @@
 //字体 雅黑
 //关注吐槽 12
 -->
+
 <style type="text/css">
-    .navbar-fixed-top,
-    .navbar-fixed-bottom {
-        position: fixed;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-        -webkit-transform: translate3d(0, 0, 0);
-        -o-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
+
+    .titchr,
+    .contchr,
+    .contbut,
+    .contchr .num
+    {
+        font-family:"Microsoft YaHei";
+        letter-spacing:1px;
     }
-    .navbar-fixed-top {
-        top: 0;
-        border-width: 0 0 1px;
+
+    .titchr
+    {
+        font-size:22px;
+        color:#333333
     }
-    .navbar-fixed-bottom {
-        bottom: 0;
-        margin-bottom: 0;
-        border-width: 1px 0 0;
+    .contchr
+    {
+        font-size:14px;
+        color:#666666;
+
     }
+    .contchr > strong
+    {
+        color:#333333
+    }
+
+    .contbut
+    {
+        font-size:14px;
+        color:#FFFFFF
+    }
+
+    .contchr .num
+    {
+        padding-top: 8px;
+        font-size:12px;
+        color:#666666;
+    }
+
 
     .topbar
     {
@@ -149,7 +170,7 @@
     <div>
 
         <div class="topbar">
-            <div class="container">
+            <div class="container" style="width:1200px">
                 <div class="bar">
                     <ul class="barul">
                         <a href="#"><li class="title" onmouseover="this.className = 'title_active'" onmouseout="this.className = 'title'">首页</li></a>
@@ -164,16 +185,15 @@
         </div>
 
         <div class="searchbar">
-            <div class="container">
+            <div class="container" style="width:1200px">
                 <div class="bar">
 
                     <a href="#"><img style="margin-top: 30px;margin-left: 60px;float: left" src="<?php echo base_url() . "img/less-logo-large.png"; ?>"></a>
-                    <form class="navbar-form navbar-left" role="search" style="float:left;margin-top: 40px;margin-left: 40px">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" style="width:600px">
-                        </div>
-                        <button type="submit" class="btn btn-default">搜</button>
-                    </form>
+
+                    <div class="form-group has-feedback" style="float:left;margin-top: 40px;margin-left: 40px;width: 665px">
+                        <input type="text" class="form-control" id="inputSuccess2" placeholder="<?php echo site_url("product/ck")?>">
+                        <a href="#"><span class="glyphicon glyphicon-search form-control-feedback" style="top:1px"></span></a>
+                    </div>
                     <a href="#"><img style="margin-top: 20px;margin-left: 20px;float: left" src="<?php echo base_url() . "img/tucao.jpg"; ?>"></a>
 
                 </div>
@@ -186,73 +206,52 @@
 
 
 
+        <div class="container" style="width:100%;padding: 0">
 
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
 
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style=" height: 468px">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                </ol>
 
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-            </ol>
+                <!-- Wrapper for slides -->
 
-            <!-- Wrapper for slides -->
-
-            <div class="carousel-inner" role="listbox">
-
-                <div class="item active">
-
-                    <img src="<?php echo base_url() . "img/cc.png"; ?>" alt="...">
-                    <div class="carousel-caption">
-                        ...
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="<?php echo base_url() . "img/pic.png"; ?>" alt="...">
+                        <div class="carousel-caption">
+                            ...
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="<?php echo base_url() . "img/big3.jpg"; ?>" alt="...">
+                        <div class="carousel-caption">
+                            ...
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="<?php echo base_url() . "img/big4.jpg"; ?>" alt="...">
+                        <div class="carousel-caption">
+                            ...
+                        </div>
                     </div>
                 </div>
-                <div class="item ">
 
-                    <img src="<?php echo base_url() . "img/aa.png"; ?>" alt="...">
-                    <div class="carousel-caption">
-                        ...
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="<?php echo base_url() . "img/bb.png"; ?>" alt="...">
-                    <div class="carousel-caption">
-                        ...
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="<?php echo base_url() . "img/pic.png"; ?>" alt="...">
-                    <div class="carousel-caption">
-                        ...
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="<?php echo base_url() . "img/big1.jpg"; ?>" alt="...">
-                    <div class="carousel-caption">
-                        ...
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="<?php echo base_url() . "img/big4.jpg"; ?>" alt="...">
-                    <div class="carousel-caption">
-                        ...
-                    </div>
-                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+
+                    <span class="sr-only">Next</span>
+                </a>
             </div>
-
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-
-                <span class="sr-only">Next</span>
-            </a>
         </div>
-
 
 
 
@@ -271,7 +270,12 @@
             {
                 float: left;
                 width: 240px;
-                height: 200px
+                //height: 200px
+            }
+
+            .itempic > img
+            {
+                height: 200px;
             }
 
             .dh1
@@ -285,7 +289,8 @@
             {
                 float: left;
                 margin-top: 20px;
-                margin-left: 15px
+                margin-left: 15px;
+
             }
 
             .dh1 .content
@@ -325,11 +330,17 @@
 
             .dh1 .content text h5 a small
             {
-                color: #333333;
+                font-family:"Microsoft YaHei";
+                letter-spacing:1px;
+                color: #666666;
+                margin-right: 22px
             }
             .dh1_active .content text h5 a small
             {
+                font-family:"Microsoft YaHei";
+                letter-spacing:1px;
                 color: #FFFFFF;
+                margin-right: 22px
             }
 
             .dh1 .detail .panel
@@ -345,7 +356,7 @@
             .dh1_active .detail .panel
             {
                 display: block; 
-                position: absolute;
+                //position: absolute;
                 width: 300px;
                 height: 390px;
                 top: 0;
@@ -361,15 +372,15 @@
 
         </style>
         <div class="container" style="width: 1200px; padding: 0">
-            <div class="panel panel-default" style="position:absolute;z-index:100; top:149px;width: 270px;border: 0">
+            <div class="panel panel-default" style="position:absolute;z-index:100; top:153px;width: 270px;border: 0">
                 <div class="panel-body" style="padding: 0">
                     <div class="dh1" onmouseover="this.className = 'dh1_active'" onmouseout="this.className = 'dh1'">
                         <div class="pic">
                             <img src="<?php echo base_url() . "img/xz-35-35.png"; ?>" alt="...">
                         </div>
                         <div class="content">
-                            <text><h4 style="margin-top: 5px"><strong>数码通讯</strong></h4></text>
-                            <text><h5><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a></h5></text>
+                            <text><h4 style="margin-top: 5px;font-family:'Microsoft YaHei';letter-spacing:1px;"><strong>数码通讯</strong></h4></text>
+                            <text><h5><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a></h5></text>
                             <hr style="margin-top: 8px;margin-bottom: 0" />
                         </div>
                         <div class="detail">
@@ -386,9 +397,9 @@
                             <img src="<?php echo base_url() . "img/bb-35-35.png"; ?>" alt="...">
                         </div>
                         <div class="content">
-                            <text><h4 style="margin-top: 5px"><strong>数码通讯</strong></h4></text>
-                            <text><h5><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a></h5></text>
-                            <hr style="margin-top: 8px;margin-bottom: 0; color:#D14">
+                            <text><h4 style="margin-top: 5px;font-family:'Microsoft YaHei';letter-spacing:1px;"><strong>数码通讯</strong></h4></text>
+                            <text><h5><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a></h5></text>
+                            <hr style="margin-top: 8px;margin-bottom: 0" />
                         </div>
                         <div class="detail">
                             <div class="panel panel-default">
@@ -403,9 +414,9 @@
                             <img src="<?php echo base_url() . "img/xs-35-35.png"; ?>" alt="...">
                         </div>
                         <div class="content">
-                            <text><h4 style="margin-top: 5px"><strong>数码通讯</strong></h4></text>
-                            <text><h5><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a></h5></text>
-                            <hr style="margin-top: 8px;margin-bottom: 0">
+                            <text><h4 style="margin-top: 5px;font-family:'Microsoft YaHei';letter-spacing:1px;"><strong>数码通讯</strong></h4></text>
+                            <text><h5><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a></h5></text>
+                            <hr style="margin-top: 8px;margin-bottom: 0" />
                         </div>
                         <div class="detail">
                             <div class="panel panel-default">
@@ -420,9 +431,9 @@
                             <img src="<?php echo base_url() . "img/yf-35-35.png"; ?>" alt="...">
                         </div>
                         <div class="content">
-                            <text><h4 style="margin-top: 5px"><strong>数码通讯</strong></h4></text>
-                            <text><h5><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a></h5></text>
-                            <hr style="margin-top: 8px;margin-bottom: 0">
+                            <text><h4 style="margin-top: 5px;font-family:'Microsoft YaHei';letter-spacing:1px;"><strong>数码通讯</strong></h4></text>
+                            <text><h5><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a></h5></text>
+                            <hr style="margin-top: 8px;margin-bottom: 0" />
                         </div>
                         <div class="detail">
                             <div class="panel panel-default">
@@ -437,9 +448,9 @@
                             <img src="<?php echo base_url() . "img/fq-35-35.png"; ?>" alt="...">
                         </div>
                         <div class="content">
-                            <text><h4 style="margin-top: 5px"><strong>数码通讯</strong></h4></text>
-                            <text><h5><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a></h5></text>
-                            <hr style="margin-top: 8px;margin-bottom: 0">
+                            <text><h4 style="margin-top: 5px;font-family:'Microsoft YaHei';letter-spacing:1px;"><strong>数码通讯</strong></h4></text>
+                            <text><h5><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a></h5></text>
+                            <hr style="margin-top: 8px;margin-bottom: 0" />
                         </div>
                         <div class="detail">
                             <div class="panel panel-default">
@@ -454,9 +465,9 @@
                             <img src="<?php echo base_url() . "img/jz-35-35.png"; ?>" alt="...">
                         </div>
                         <div class="content">
-                            <text><h4 style="margin-top: 5px"><strong>数码通讯</strong></h4></text>
-                            <text><h5><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a></h5></text>
-                            <hr style="margin-top: 8px;margin-bottom: 0">
+                            <text><h4 style="margin-top: 5px;font-family:'Microsoft YaHei';letter-spacing:1px;"><strong>数码通讯</strong></h4></text>
+                            <text><h5><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a></h5></text>
+                            <hr style="margin-top: 8px;margin-bottom: 0" />
                         </div>
                         <div class="detail">
                             <div class="panel panel-default">
@@ -471,9 +482,9 @@
                             <img src="<?php echo base_url() . "img/jz-35-35.png"; ?>" alt="...">
                         </div>
                         <div class="content">
-                            <text><h4 style="margin-top: 5px"><strong>数码通讯</strong></h4></text>
-                            <text><h5><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a><a style="margin-right: 25px"><small>数码</small></a></h5></text>
-
+                            <text><h4 style="margin-top: 5px;font-family:'Microsoft YaHei';letter-spacing:1px;"><strong>数码通讯</strong></h4></text>
+                            <text><h5><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a></h5></text>
+                            <hr style="margin-top: 8px;margin-bottom: 0" />
                         </div>
                         <div class="detail">
                             <div class="panel panel-default">
@@ -489,21 +500,19 @@
             <div id="left" class="leftcontent">
                 <div class="alert alert-warning" style=" margin-bottom: 0;margin-top: 20px;padding: 0;height: 50px" role="alert">...</div>
                 <div style="padding-top: 20px;padding-bottom: 20px">
-
                     <div class="itempic">
-
                         <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
                     </div>
                     <div style="float: left;width: 670px">
-                        <div id="title"><h3 style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>坑爹的卖家</strong></h3></div>
+                        <div id="title"><h3 class="titchr" style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>坑爹的卖家</strong></h3></div>
                         <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <span>
+                            <span class="contchr">
                                 <strong>网友ID：</strong>
-                                <small>舒缓型喷雾夏天用可缓解肌肤燥热，单买好价。VICHY薇姿是全球知名的药妆品牌，目前下属于法国欧莱雅公司旗下。薇姿家比较受欢迎的就是润泉系列以及油脂调护系列。 这款润泉舒缓喷雾，富含15种矿物质，有助于增加皮肤舒适度，帮助增强皮肤天然防御功能。根据用户评价...s</small>
+                                舒缓型喷雾夏天用可缓解肌肤燥热，单买好价。VICHY薇姿是全球知名的药妆品牌，目前下属于法国欧莱雅公司旗下。薇姿家比较受欢迎的就是润泉系列以及油脂调护系列。 这款润泉舒缓喷雾，富含15种矿物质...s
                             </span>
                         </div>
                         <div id="comment" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
-                            <span>
+                            <span class="contchr">
                                 <strong>小编评语:</strong>
                                 精神可嘉，必须赞！
                             </span>
@@ -513,405 +522,165 @@
                             <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
                             <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
                         </div>
-                        <div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
+                        <div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px" class="contchr">
                             <div id="pity"></div>
                             <span class="glyphicon glyphicon-heart-empty" style="margin-right: 10px"><text style="margin-left: 5px">同情122</span>
                             <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
                             <span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span>
-                            <button type="button" class="btn btn-danger" style="float: right">去看看<span class="glyphicon glyphicon-chevron-right"></span></button>
+                            <button type="button" class="btn btn-danger" style="float: right"><span class="contbut">去看看</span><span class="glyphicon glyphicon-chevron-right"></span></button>
                         </div>
-
                         <hr>
-
                     </div>
-
-
                 </div>
-                <div style="padding-top: 20px;padding-bottom: 20px">
-
-                    <div class="itempic">
-
-                        <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
-                    </div>
-                    <div style="float: left;width: 670px">
-                        <div id="title"><h3 style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>坑爹的卖家</strong></h3></div>
-                        <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <span>
-                                <strong>网友ID：</strong>
-                                <small>舒缓型喷雾夏天用可缓解肌肤燥热，单买好价。VICHY薇姿是全球知名的药妆品牌，目前下属于法国欧莱雅公司旗下。薇姿家比较受欢迎的就是润泉系列以及油脂调护系列。 这款润泉舒缓喷雾，富含15种矿物质，有助于增加皮肤舒适度，帮助增强皮肤天然防御功能。根据用户评价...s</small>
-                            </span>
-                        </div>
-                        <div id="comment" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
-                            <span>
-                                <strong>小编评语:</strong>
-                                精神可嘉，必须赞！
-                            </span>
-                        </div>
-                        <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                        </div>
-                        <div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
-                            <div id="pity"></div>
-                            <span class="glyphicon glyphicon-heart-empty" style="margin-right: 10px"><text style="margin-left: 5px">同情122</span>
-                            <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
-                            <span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span>
-                            <button type="button" class="btn btn-danger" style="float: right">去看看<span class="glyphicon glyphicon-chevron-right"></span></button>
-                        </div>
-
-                        <hr>
-
-                    </div>
-
-
-                </div>
-                <div style="padding-top: 20px;padding-bottom: 20px">
-
-                    <div class="itempic">
-
-                        <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
-                    </div>
-                    <div style="float: left;width: 670px">
-                        <div id="title"><h3 style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>坑爹的卖家</strong></h3></div>
-                        <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <span>
-                                <strong>网友ID：</strong>
-                                <small>舒缓型喷雾夏天用可缓解肌肤燥热，单买好价。VICHY薇姿是全球知名的药妆品牌，目前下属于法国欧莱雅公司旗下。薇姿家比较受欢迎的就是润泉系列以及油脂调护系列。 这款润泉舒缓喷雾，富含15种矿物质，有助于增加皮肤舒适度，帮助增强皮肤天然防御功能。根据用户评价...s</small>
-                            </span>
-                        </div>
-                        <div id="comment" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
-                            <span>
-                                <strong>小编评语:</strong>
-                                精神可嘉，必须赞！
-                            </span>
-                        </div>
-                        <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                        </div>
-                        <div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
-                            <div id="pity"></div>
-                            <span class="glyphicon glyphicon-heart-empty" style="margin-right: 10px"><text style="margin-left: 5px">同情122</span>
-                            <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
-                            <span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span>
-                            <button type="button" class="btn btn-danger" style="float: right">去看看<span class="glyphicon glyphicon-chevron-right"></span></button>
-                        </div>
-
-                        <hr>
-
-                    </div>
-
-
-                </div>
-                <div style="padding-top: 20px;padding-bottom: 20px">
-
-                    <div class="itempic">
-
-                        <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
-                    </div>
-                    <div style="float: left;width: 670px">
-                        <div id="title"><h3 style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>坑爹的卖家</strong></h3></div>
-                        <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <span>
-                                <strong>网友ID：</strong>
-                                <small>舒缓型喷雾夏天用可缓解肌肤燥热，单买好价。VICHY薇姿是全球知名的药妆品牌，目前下属于法国欧莱雅公司旗下。薇姿家比较受欢迎的就是润泉系列以及油脂调护系列。 这款润泉舒缓喷雾，富含15种矿物质，有助于增加皮肤舒适度，帮助增强皮肤天然防御功能。根据用户评价...s</small>
-                            </span>
-                        </div>
-                        <div id="comment" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
-                            <span>
-                                <strong>小编评语:</strong>
-                                精神可嘉，必须赞！
-                            </span>
-                        </div>
-                        <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                        </div>
-                        <div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
-                            <div id="pity"></div>
-                            <span class="glyphicon glyphicon-heart-empty" style="margin-right: 10px"><text style="margin-left: 5px">同情122</span>
-                            <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
-                            <span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span>
-                            <button type="button" class="btn btn-danger" style="float: right">去看看<span class="glyphicon glyphicon-chevron-right"></span></button>
-                        </div>
-
-                        <hr>
-
-                    </div>
-
-
-                </div>
-                <div style="padding-top: 20px;padding-bottom: 20px">
-
-                    <div class="itempic">
-
-                        <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
-                    </div>
-                    <div style="float: left;width: 670px">
-                        <div id="title"><h3 style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>坑爹的卖家</strong></h3></div>
-                        <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <span>
-                                <strong>网友ID：</strong>
-                                <small>舒缓型喷雾夏天用可缓解肌肤燥热，单买好价。VICHY薇姿是全球知名的药妆品牌，目前下属于法国欧莱雅公司旗下。薇姿家比较受欢迎的就是润泉系列以及油脂调护系列。 这款润泉舒缓喷雾，富含15种矿物质，有助于增加皮肤舒适度，帮助增强皮肤天然防御功能。根据用户评价...s</small>
-                            </span>
-                        </div>
-                        <div id="comment" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
-                            <span>
-                                <strong>小编评语:</strong>
-                                精神可嘉，必须赞！
-                            </span>
-                        </div>
-                        <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                        </div>
-                        <div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
-                            <div id="pity"></div>
-                            <span class="glyphicon glyphicon-heart-empty" style="margin-right: 10px"><text style="margin-left: 5px">同情122</span>
-                            <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
-                            <span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span>
-                            <button type="button" class="btn btn-danger" style="float: right">去看看<span class="glyphicon glyphicon-chevron-right"></span></button>
-                        </div>
-
-                        <hr>
-
-                    </div>
-
-
-                </div>
-                <div style="padding-top: 20px;padding-bottom: 20px">
-
-                    <div class="itempic">
-
-                        <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
-                    </div>
-                    <div style="float: left;width: 670px">
-                        <div id="title"><h3 style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>坑爹的卖家</strong></h3></div>
-                        <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <span>
-                                <strong>网友ID：</strong>
-                                <small>舒缓型喷雾夏天用可缓解肌肤燥热，单买好价。VICHY薇姿是全球知名的药妆品牌，目前下属于法国欧莱雅公司旗下。薇姿家比较受欢迎的就是润泉系列以及油脂调护系列。 这款润泉舒缓喷雾，富含15种矿物质，有助于增加皮肤舒适度，帮助增强皮肤天然防御功能。根据用户评价...s</small>
-                            </span>
-                        </div>
-                        <div id="comment" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
-                            <span>
-                                <strong>小编评语:</strong>
-                                精神可嘉，必须赞！
-                            </span>
-                        </div>
-                        <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                        </div>
-                        <div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
-                            <div id="pity"></div>
-                            <span class="glyphicon glyphicon-heart-empty" style="margin-right: 10px"><text style="margin-left: 5px">同情122</span>
-                            <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
-                            <span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span>
-                            <button type="button" class="btn btn-danger" style="float: right">去看看<span class="glyphicon glyphicon-chevron-right"></span></button>
-                        </div>
-
-                        <hr>
-
-                    </div>
-
-
-                </div>
-                <div style="padding-top: 20px;padding-bottom: 20px">
-
-                    <div class="itempic">
-
-                        <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
-                    </div>
-                    <div style="float: left;width: 670px">
-                        <div id="title"><h3 style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>坑爹的卖家</strong></h3></div>
-                        <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <span>
-                                <strong>网友ID：</strong>
-                                <small>舒缓型喷雾夏天用可缓解肌肤燥热，单买好价。VICHY薇姿是全球知名的药妆品牌，目前下属于法国欧莱雅公司旗下。薇姿家比较受欢迎的就是润泉系列以及油脂调护系列。 这款润泉舒缓喷雾，富含15种矿物质，有助于增加皮肤舒适度，帮助增强皮肤天然防御功能。根据用户评价...s</small>
-                            </span>
-                        </div>
-                        <div id="comment" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
-                            <span>
-                                <strong>小编评语:</strong>
-                                精神可嘉，必须赞！
-                            </span>
-                        </div>
-                        <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                        </div>
-                        <div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
-                            <div id="pity"></div>
-                            <span class="glyphicon glyphicon-heart-empty" style="margin-right: 10px"><text style="margin-left: 5px">同情122</span>
-                            <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
-                            <span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span>
-                            <button type="button" class="btn btn-danger" style="float: right">去看看<span class="glyphicon glyphicon-chevron-right"></span></button>
-                        </div>
-
-                        <hr>
-
-                    </div>
-
-
-                </div>
-
-
             </div>
             <div id="right" style="width: 260px;padding-top: 20px;padding-left: 20px;float: left">
                 <div class="panel panel-default" style="width: 240px">
                     <div class="panel-body" style=" padding-top: 0px; ">
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="panel panel-danger" style="width: 240px">
                     <div class="panel-heading">
-                        <h3 class="panel-title">最热门</h3>
+                        <h3 class="panel-title" style="font-family:'Microsoft YaHei';letter-spacing:1px;">最热门</h3>
                     </div>
                     <div class="panel-body" style=" padding-top: 0px; ">
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="panel panel-info" style="width: 240px">
                     <div class="panel-heading">
-                        <h3 class="panel-title">最悲催</h3>
+                        <h3 class="panel-title" style="font-family:'Microsoft YaHei';letter-spacing:1px;">最悲催</h3>
                     </div>
                     <div class="panel-body" style=" padding-top: 0px; ">
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="panel panel-warning" style="width: 240px">
                     <div class="panel-heading">
-                        <h3 class="panel-title">最奇葩</h3>
+                        <h3 class="panel-title" style="font-family:'Microsoft YaHei';letter-spacing:1px;">最奇葩</h3>
                     </div>
                     <div class="panel-body" style=" padding-top: 0px; ">
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                         <div style="clear:both">
-                            <div style="float: left;margin-top: 20px">
+                            <div style="float: left;margin-top: 25px">
                                 <span class="glyphicon glyphicon-fire"></span>
                             </div>
-                            <div style="float: left;margin-top: 10px;margin-left: 15px">
-                                <text><strong>吐槽京东</strong></text>
-                                <h5><small>   222人关注    444吐槽</small></h5>
+                            <div style="float: left;margin-top: 15px;margin-left: 15px" class="contchr">
+                                <strong>吐槽京东</strong><br>
+                                <div class="num">222人关注&nbsp;&nbsp;&nbsp;444吐槽</div>
                             </div>
                         </div>
                     </div>
@@ -1002,24 +771,27 @@
 
 
             </div>
+
+        </div>
+        <div style=" margin-left: 500px;height: 34px">
+            <ul class="pagination" style="margin: 0;">
+                <li><a href="#" style="border: 0">&laquo;上一页</a></li>
+                <li><a href="#" style="border: 0">1</a></li>
+                <li><a href="#" style="border: 0">2</a></li>
+                <li><a href="#" style="border: 0">3</a></li>
+                <li><a href="#" style="border: 0">4</a></li>
+                <li><a href="#" style="border: 0">5</a></li>
+                <li><a href="#" style="border: 0">6</a></li>
+                <li><a href="#" style="border: 0">7</a></li>
+                <li><a href="#" style="border: 0">8</a></li>
+                <li><a href="#" style="border: 0">...</a></li>
+                <li><a href="#" style="border: 0">21</a></li>
+                <li><a href="#" style="border: 0">下一页&raquo;</a></li>
+            </ul>
         </div>
     </div>
 
-    <script>
-        function show(obj) {
-            var id = obj.id;
 
-            //document.getElementById(id).popover('show');
-            $(aa).popover('show');
-            //obj.popover('show');
-            //$("[data-toggle='popover']").popover('show');
-        }
-        $(function()
-        {
-            //$("[data-toggle='popover']").popover();
-        });
-
-    </script>
 
 
 </div>

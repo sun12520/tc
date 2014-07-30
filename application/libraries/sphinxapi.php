@@ -430,7 +430,7 @@ class SphinxClient
 	function SphinxClient ()
 	{
 		// per-client-object settings
-		$this->_host		= "localhost";
+		$this->_host		= "10.241.226.31";
 		$this->_port		= 9312;
 		$this->_path		= false;
 		$this->_socket		= false;

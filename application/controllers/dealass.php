@@ -15,8 +15,10 @@ class dealass extends CI_Controller {
         $this->load->model('Do_assess');
         $this->load->library('Userlib');
 
+        $url_this = "http://" . $_SERVER ['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+        //echo $url_this;
         if (!$this->userlib->islogin()) {
-            redirect('user');
+            redirect('user?url=' . $url_this);
         }
         //$this->load->helper('url');
     }

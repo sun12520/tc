@@ -18,17 +18,28 @@ class user extends CI_Controller {
 
     function index() {
 
-
+        try {
+            $url = $this->input->get('url');
+        } catch (Exception $ex) {
+            $url = '';
+        }
+        //catch () 
+        //echo $url;
+        //return;
 
         if (!$this->userlib->islogin()) {
             $data = array();
             $data['title'] = '登录';
+            $data['url'] = $url;
 
             $this->load->view('templates/header', $data);
             $this->load->view('pages/login', $data);
             $this->load->view('templates/footer', $data);
         } else {
             //echo $this->session->userdata('username');
+            if ($url != '') {
+                redirect($url);
+            }
             redirect('dealass/showass');
         }
     }
@@ -36,6 +47,7 @@ class user extends CI_Controller {
     function login() {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
+        $url = $this->input->post('url');
 
         $data = array(
             'username' => $username,
@@ -46,6 +58,9 @@ class user extends CI_Controller {
         if ($result) {
             $data['user_id'] = $result;
             $this->session->set_userdata($data);
+            if ($url != '') {
+                redirect($url);
+            }
         }
         redirect('user');
         //echo $this->session->userdata('username');
@@ -54,7 +69,7 @@ class user extends CI_Controller {
     }
 
     function logout() {
-        $array_items = array('username' => '', 'password' => '','user_id'=>'');
+        $array_items = array('username' => '', 'password' => '', 'user_id' => '');
         $this->session->unset_userdata($array_items);
         //$aa = $this->session->all_userdata();
         //print_r($aa);
@@ -86,13 +101,13 @@ class user extends CI_Controller {
             'user_id' => $user_id,
         );
         $this->session->set_userdata($data);
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
         //redirect('user');
     }
 

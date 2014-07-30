@@ -8,7 +8,7 @@
     <body>
         <form action="act.php" method="post">
             <input type="text" name="code" />
-            <img id="code" src="http://localhost/tucao/index.php/checkcode" alt="看不清楚，换一张" style="cursor: pointer; vertical-align:middle;" onClick="create_code()"/>
+            <img id="code" src="<?php echo site_url("checkcode") ?>" alt="看不清楚，换一张" style="cursor: pointer; vertical-align:middle;" onClick="create_code()"/>
             <!--<button type="button" onClick="create_code()">更换</button>-->
             <button type="submit">提交</button>
         </form>
@@ -31,19 +31,19 @@
         <form name="addform" method="post" action="?action=save" id="addform" onsubmit="return lyalert()">
             <table width="500" border="1" cellpadding="5" cellspacing="0">
                 <tr><td>验证码：</td>
-                    <td><input name="AuthInput" type="text" id="AuthInput"  size="8" maxlength="6" /><script>document.write("<img src=\"http://localhost/tucao/index.php/assess/ck?n=", Math.random(), "\" />");</script></td></tr>
+                    <td><input name="AuthInput" type="text" id="AuthInput"  size="8" maxlength="6" /><script>document.write("<img src=\"<?php echo site_url("assess/ck?n=") ?>", Math.random(), "\" />");</script></td></tr>
                 <tr><td colspan="2" align="center"><input type="submit" name="Button1" value="确定" id="Button1" /></td>
                 </tr>
             </table>
             <p>&nbsp;</p>
         </form>
 
-        <label><img src="http://localhost/tucao/index.php/assess/newck" onclick="javascript:this.src = 'http://localhost/tucao/index.php/assess/newck?tm=' + Math.random();" /></label> 
+        <label><img src="<?php echo site_url("assess/newck") ?>" onclick="javascript:this.src = '<?php echo site_url("assess/newck?tm=") ?>' + Math.random();" /></label> 
 
 
         <script>
             function create_code() {
-                document.getElementByIdx_x('code').src = 'http://localhost/tucao/index.php/checkcode';
+                document.getElementByIdx_x('code').src = '<?php echo site_url("checkcode") ?>';
             }
         </script>
 

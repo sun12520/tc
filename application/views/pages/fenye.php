@@ -16,7 +16,7 @@ body{ font-size:12px; font-family:Verdana, Arial, Helvetica, sans-serif}
 //分页尺寸
 $page_size=2;
 
-$conn=mysql_connect("localhost:3307","root","123456") or die(mysql_error());
+$conn=mysql_connect("10.241.226.31:3307","root","123456") or die(mysql_error());
 mysql_select_db("tccenter");
 
 //计算总行数
@@ -46,7 +46,7 @@ while ($rs=mysql_fetch_array($query))
 
 <script language="javascript">
 var total_page=<?=$total_page?>;
-var url="http://localhost/tucao/index.php/assess/fenye?page";//当前链接,格式如下，例如：?aa=1&page  ,somepage.php?action=1&cat=1&page
+var url="<?php echo site_url("assess/fenye?page") ?>";//当前链接,格式如下，例如：?aa=1&page  ,somepage.php?action=1&cat=1&page
 
 $().ready(function(){
 
