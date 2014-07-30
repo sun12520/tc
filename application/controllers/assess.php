@@ -1,5 +1,4 @@
 <?php
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -160,5 +159,21 @@ class Assess extends CI_Controller {
         $this->load->view('pages/home', $data);
         $this->load->view('templates/footer', $data);
     }
+
+    function fenye() {
+
+
+        $page = $_GET["page"] + 0;
+        $page = $page <= 0 ? 1 : $page;
+
+//分页尺寸
+        $page_size = 10;
+        $conn = mysql_connect("localhost", "root", "root") or die(mysql_error());
+        mysql_select_db("xinyang");
+        $offset = ($page - 1) * $page_size;
+        $query = mysql_query("select * from product limit $offset,$page_size") or die(mysql_error());
+
+
+}
 
 }
