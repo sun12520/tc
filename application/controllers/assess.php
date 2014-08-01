@@ -1,4 +1,5 @@
 <?php
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,27 +12,53 @@
 
 class Assess extends CI_Controller {
 
+    private static $username;
+
     function __construct() {
         parent::__construct();
+        $this->load->model('Do_assess');
         $this->load->library('Userlib');
 
-        $url_this =  "http://".$_SERVER ['HTTP_HOST'].$_SERVER['PHP_SELF'];
+        $url_this = "http://" . $_SERVER ['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+        self::$username = $this->session->userdata('username');
         //echo $url_this;
-        if (!$this->userlib->islogin()) {
-            redirect('user?url='.$url_this);
-        }
+        //if (!$this->userlib->islogin()) {
+        //    redirect('user?url='.$url_this);
+        //}
         //$this->load->model('Do_assess');
         //$this->load->helper('url');
     }
 
-    public function view($page = 'home') {
+    public function view($page = 'home', $pagenum = 1, $limit = 4) {
         if (!file_exists(APPPATH . '/views/pages/' . $page . '.php')) {
             // 页面不存在
             show_404();
         }
 
-        $data['title'] = ucfirst($page); // 将title中的第一个字符大写
+        $status = 1;
+        //$offsite = 0;
+        //$limit = 5;
+        //$pagesize = 5;
+        //获取总行数
+        $totlenum = $this->Do_assess->get_ass_num($status);
+        $totlepage = ceil($totlenum / $limit);
+        $offsite = ($pagenum-1) * $limit;
 
+        $ass_list = $this->Do_assess->get_ass($status, $offsite, $limit);
+
+        $url = $this->input->post('url');
+        //$username = $this->session->userdata('username');
+
+
+        $data['title'] = ucfirst($page); // 将title中的第一个字符大写
+        $data['url'] = $url;
+        $data['username'] = self::$username;
+        $data['ass_list'] = $ass_list;
+        $data['totle_page'] = $totlepage;
+        $data['current_page'] = $pagenum;
+
+        //echo $data['totle_page'];
+        //return 0;
         $this->load->helper('form');
         $this->load->view('templates/header', $data);
         $this->load->view('pages/' . $page, $data);
@@ -40,6 +67,8 @@ class Assess extends CI_Controller {
 
     public function commit() {
         $data['title'] = "Commit";
+        $data['username'] = self::$username;
+        $data['url'] = '';
 
         $this->load->helper('form');
         $this->load->view('templates/header', $data);
@@ -174,8 +203,6 @@ class Assess extends CI_Controller {
         mysql_select_db("xinyang");
         $offset = ($page - 1) * $page_size;
         $query = mysql_query("select * from product limit $offset,$page_size") or die(mysql_error());
-
-
-}
+    }
 
 }

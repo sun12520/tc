@@ -29,7 +29,19 @@ class Do_assess extends CI_Model {
     //    return $query->result();
     //}
 
-    function get_ass($status,$user_id = '') {
+    function get_ass_num($status,$user_id = '') {
+        if ($user_id) {
+            $this->db->where('user_id', $user_id);
+        }
+        $total_rows = $this->db
+                ->from('assess')
+                ->where('status', $status)
+                ->count_all_results();
+        
+        return $total_rows;
+    }
+
+    function get_ass($status, $offset = 0, $limit = 10, $user_id = '') {
 
         /*
          * 查询吐槽
@@ -40,15 +52,14 @@ class Do_assess extends CI_Model {
         $orderby = 'ci_date';
         $direction = 'desc';
 
-        if ($user_id)
-        {
-            $this->db->where('user_id',$user_id);
+        if ($user_id) {
+            $this->db->where('user_id', $user_id);
         }
-        
+
         $data_list = $this->db
                 ->where('status', $status)
                 ->order_by('ci_date', $direction)
-                //->limit($per_page, $offset)
+                ->limit($limit, $offset)
                 ->from('assess')
                 ->get()
                 ->result();
@@ -88,18 +99,18 @@ class Do_assess extends CI_Model {
 
         $ass_data = array(
             'user_id' => $user_id,
-            'title'=>$title,
-            'Content'=>$Content,
-            'price'=>$price,
-            'location'=>$location,
-            'pzType'=>$pzType,
-            'pzPicPath'=>$pzPicPath,
-            'tag'=>$tag,
-            'status'=>$status,
-            'ci_date'=>time()
+            'title' => $title,
+            'Content' => $Content,
+            'price' => $price,
+            'location' => $location,
+            'pzType' => $pzType,
+            'pzPicPath' => $pzPicPath,
+            'tag' => $tag,
+            'status' => $status,
+            'ci_date' => time()
         );
-        
-        
+
+
         $this->db->insert('assess', $ass_data);
     }
 
@@ -110,7 +121,6 @@ class Do_assess extends CI_Model {
         $this->db->delete('assess', array('assess_id' => $assess_id));
     }
 
-    
     //废弃
     function ass_review($status, $user_id = '') {
         /*
@@ -136,7 +146,7 @@ class Do_assess extends CI_Model {
          */
     }
 
-    function update_ass($assess_id, $status,$review_content = '') {
+    function update_ass($assess_id, $status, $review_content = '') {
         /**
          * 更新吐槽审核状态
          */
@@ -150,19 +160,18 @@ class Do_assess extends CI_Model {
         $this->db->where('assess_id', $assess_id);
         $this->db->update('assess', $data);
     }
-    
+
     function zan_ass($assess_id) {
         /**
          * 更新吐槽攒数量状态
          */
-        
-        $sql = 'select zan from assess where assess_id ='.$assess_id;
+        $sql = 'select zan from assess where assess_id =' . $assess_id;
         $query = $this->db->query($sql);
-        
+
         foreach ($query->result() as $row) {
-          $num_now =  $row->zan;
-          }
-        
+            $num_now = $row->zan;
+        }
+
         $num = $num_now + 1;
         $data = array(
             'zan' => $num,
@@ -170,10 +179,8 @@ class Do_assess extends CI_Model {
 
         $this->db->where('assess_id', $assess_id);
         $this->db->update('assess', $data);
-        
+
         return $num;
-        
     }
-    
 
 }

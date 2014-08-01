@@ -17,31 +17,35 @@ class user extends CI_Controller {
     }
 
     function index() {
+        redirect('assess/view/mainpage');
+        /**
+          try {
+          $url = $this->input->get('url');
+          } catch (Exception $ex) {
+          $url = '';
+          }
+          //catch ()
+          //echo $url;
+          //return;
 
-        try {
-            $url = $this->input->get('url');
-        } catch (Exception $ex) {
-            $url = '';
-        }
-        //catch () 
-        //echo $url;
-        //return;
+          if (!$this->userlib->islogin()) {
+          $data = array();
+          $data['title'] = '登录';
+          $data['url'] = $url;
+          $data['username']=FALSE;
 
-        if (!$this->userlib->islogin()) {
-            $data = array();
-            $data['title'] = '登录';
-            $data['url'] = $url;
+          $this->load->view('templates/header', $data);
+          $this->load->view('pages/login', $data);
+          $this->load->view('templates/footer', $data);
+          } else {
+          //echo $this->session->userdata('username');
+          if ($url != '') {
+          redirect($url);
+          }
+          redirect('assess/view/mainpage');
+          }
 
-            $this->load->view('templates/header', $data);
-            $this->load->view('pages/login', $data);
-            $this->load->view('templates/footer', $data);
-        } else {
-            //echo $this->session->userdata('username');
-            if ($url != '') {
-                redirect($url);
-            }
-            redirect('dealass/showass');
-        }
+         */
     }
 
     function login() {
@@ -62,7 +66,7 @@ class user extends CI_Controller {
                 redirect($url);
             }
         }
-        redirect('user');
+        redirect('assess/view/mainpage');
         //echo $this->session->userdata('username');
         //echo $this->session->userdata('user_id');
         //echo $this->session->userdata('password');
@@ -73,13 +77,14 @@ class user extends CI_Controller {
         $this->session->unset_userdata($array_items);
         //$aa = $this->session->all_userdata();
         //print_r($aa);
-        redirect('user');
+        redirect('assess/view/mainpage');
     }
 
     function register() {
         $data = array();
         $data['title'] = '注册';
-
+        $data['username'] = FALSE;
+        $data['url'] = '';
 
         $this->load->view('templates/header', $data);
         $this->load->view('pages/reg', $data);
@@ -101,14 +106,7 @@ class user extends CI_Controller {
             'user_id' => $user_id,
         );
         $this->session->set_userdata($data);
-
-
-
-
-
-
-
-        //redirect('user');
+        redirect('assess/view/mainpage');
     }
 
 }

@@ -56,11 +56,12 @@
         bottom: 0;
         margin-bottom: 0;
         margin-top: 10px
-        
+
     }
 
 
 </style>
+</div>
 <div class="footpic">
     <a><img src="<?php echo base_url() . "img/footer.jpg"; ?>"></a>
 </div>
@@ -74,8 +75,8 @@
                 </div>
                 <a href="#"><li class="foot" style=" margin-left: 200px" onmouseover="this.className = 'foot_active'" onmouseout="this.className = 'foot'">关于我们</li></a>
                 <a href="#"><li class="foot" onmouseover="this.className = 'foot_active'" onmouseout="this.className = 'foot'">联系我们</li></a>
-                <a href="#"><li class="foot" onmouseover="this.className = 'foot_active'" onmouseout="this.className = 'foot'">免责声明</li></a>
-                <a href="#"><li class="foot" onmouseover="this.className = 'foot_active'" onmouseout="this.className = 'foot'">网站地图</li></a>
+                <a href="<?php echo site_url('dealass/showass') ?>"><li class="foot" onmouseover="this.className = 'foot_active'" onmouseout="this.className = 'foot'">免责声明</li></a>
+                <a href="<?php echo site_url('admin/review/show_assess') ?>"><li class="foot" onmouseover="this.className = 'foot_active'" onmouseout="this.className = 'foot'">网站地图</li></a>
             </ul>
         </div>
     </div>

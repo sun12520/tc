@@ -11,7 +11,7 @@
         //alert($spurl);
         $spdata = {url: $spurl};
 
-        $posturl = "http://10.241.226.31/tucao/index.php/dealass/get_jd_info";
+        $posturl = "<?php echo site_url('dealass/get_jd_info') ?>";
         $.post($posturl, $spdata, function(data, status) {
             //alert("Data: " + data + "\nStatus: " + status);
 

@@ -10,16 +10,19 @@ require_once(APPPATH . 'libraries/fetch.php');
 
 class dealass extends CI_Controller {
 
+    private static $username;
+
     function __construct() {
         parent::__construct();
         $this->load->model('Do_assess');
         $this->load->library('Userlib');
+        self::$username = $this->session->userdata('username');
 
         $url_this = "http://" . $_SERVER ['HTTP_HOST'] . $_SERVER['PHP_SELF'];
         //echo $url_this;
-        if (!$this->userlib->islogin()) {
-            redirect('user?url=' . $url_this);
-        }
+        //if (!$this->userlib->islogin()) {
+        //    redirect('user?url=' . $url_this);
+        //}
         //$this->load->helper('url');
     }
 
@@ -30,10 +33,30 @@ class dealass extends CI_Controller {
         $url = $this->input->post('url');
         //echo  $url;
         //log_message('error',$url);
-        //$url = 'http://item.jd.com/1156102.html';
+        $url = 'http://item.jd.com/1156102.html';
         $data = fetch_jd($url);
         //log_message('error',$data);
         echo $data;
+    }
+
+    public function asslist() {
+        /**
+         * 查询展示吐槽
+         */
+        //$data['title'] = '查询吐槽列表';
+
+        $offsite = $this->input->post('offsite');
+        $limit = $this->input->post('limit');
+
+        $status = 1;
+        $ass_list = $this->Do_assess->get_ass($status, $offsite, $limit);
+
+        return $ass_list;
+        //$data['ass_list'] = $ass_list;
+        //$data['username'] = self::$username;
+        //$this->load->view('templates/header', $data);
+        //$this->load->view('items/listass', $data);
+        //$this->load->view('templates/footer', $data);
     }
 
     public function showass() {
@@ -45,6 +68,7 @@ class dealass extends CI_Controller {
         $ass_list = $this->Do_assess->get_ass($status);
 
         $data['ass_list'] = $ass_list;
+        $data['username'] = self::$username;
 
         $this->load->view('templates/header', $data);
         $this->load->view('items/listass', $data);

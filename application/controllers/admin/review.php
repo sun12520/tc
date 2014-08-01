@@ -12,9 +12,11 @@
 
 class review extends CI_Controller {
 
+    private static $username;
     function __construct() {
         parent::__construct();
         $this->load->model('Do_assess', 'ass');
+        self::$username = $this->session->userdata('username');
         //$this->load->helper('url');
     }
 
@@ -26,6 +28,7 @@ class review extends CI_Controller {
         $data = array();
         $data['ass_list'] = $datalist;
         $data['title'] = '待审核列表';
+        $data['username'] = self::$username;
 
         $this->load->view('templates/header', $data);
         $this->load->view('admin/assess', $data);
