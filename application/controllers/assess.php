@@ -64,6 +64,72 @@ class Assess extends CI_Controller {
         $this->load->view('pages/' . $page, $data);
         $this->load->view('templates/footer', $data);
     }
+    
+    public function getdatas($pagenum = 1, $limit = 4) {
+        $status = 1;
+        //$offsite = 0;
+        //$limit = 5;
+        //$pagesize = 5;
+        //获取总行数
+        $totlenum = $this->Do_assess->get_ass_num($status);
+        $totlepage = ceil($totlenum / $limit);
+        $offsite = ($pagenum-1) * $limit;
+
+        $ass_list = $this->Do_assess->get_ass($status, $offsite, $limit);
+        
+        $arr = array();
+        //foreach ($ass_list as $row)
+        //{
+            //print_r($row);
+        //    $arr[]=$row;
+        //}
+        //print_r($arr);
+        //$str = json_encode($arr);
+        //print_r($ass_list);
+        //print $str;
+        //echo $str;
+
+        $html = '';
+        $picurl = base_url()."img/item.jpg";
+        foreach ($ass_list as $row)
+        {
+        $html .= '<div style="padding-top: 20px;padding-bottom: 20px"><div class="itempic"><img src="'.$picurl.'" alt="..." class="img-responsive"></div>
+                <div style="float: left;width: 630px;height: 247px"><div id="title"><a href="'.site_url('assess/detail').'"><h3 class="titchr" style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>'.$row->title.'</strong></h3></a></div>
+                <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px;height:61px"><span class="contchr" style="">
+                <strong>'.$row->user_id.'：</strong>'.$row->Content.'</span></div><div id="comment" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
+                <span class="contchr"><strong>小编评语:</strong>'.$row->assess_id.'精神可嘉，必须赞！</span></div>
+                <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
+                        <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
+                        <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
+                        <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
+                </div><div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px" class="contchr"><div id="pity"></div>
+                <span class="glyphicon glyphicon-heart-empty" style="margin-right: 10px"><text style="margin-left: 5px">同情122</span>
+                <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
+                <span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span>
+                <button type="button" class="btn btn-danger" style="float: right"><span class="contbut">去看看</span><span class="glyphicon glyphicon-chevron-right"></span></button>
+                </div>
+                <hr style=" bottom: 0"></div></div>';
+        
+        }
+        echo $html;
+        
+    }
+    
+    
+    public function detail(){
+        $data['title'] = "Title";
+        $data['username'] = self::$username;
+        
+        $url = $this->input->post('url');
+        $data['url'] = $url;
+        
+        $this->load->view('templates/header', $data);
+        $this->load->view('pages/detail', $data);
+        $this->load->view('templates/footer', $data);
+        
+        
+        
+    }
 
     public function commit() {
         $data['title'] = "Commit";

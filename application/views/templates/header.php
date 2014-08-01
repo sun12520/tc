@@ -73,7 +73,7 @@
                 top: 0;
                 border-width: 0 0 1px;
                 width:100%;
-                height: 40px;
+                height: 32px;
                 background-color: #333333;
                 //float: left;
                 position: fixed;
@@ -100,16 +100,16 @@
                 margin: 0;
                 padding-left: 0px;
                 width: 1140px;
-                height: 40px;
+                height: 32px;
                 //vertical-align : middle;
             }
 
             .barul .title
             {
                 width: 70px;
-                height: 40px;
+                height: 32px;
                 text-align: center;
-                padding-top: 10px;
+                padding-top: 6px;
                 float: left;
                 display: block;
                 position: relative;
@@ -119,9 +119,9 @@
             .barul .title_right
             {
                 width: 70px;
-                height: 40px;
+                height: 32px;
                 text-align: center;
-                padding-top: 10px;
+                padding-top: 7px;
                 float: left;
                 //right: 50px;
                 display: block;
@@ -132,9 +132,9 @@
             .barul .title_right_active
             {
                 width: 70px;
-                height: 40px;
+                height: 32px;
                 text-align: center;
-                padding-top: 10px;
+                padding-top: 7px;
                 float: left;
                 display: block;
                 position: relative;
@@ -145,9 +145,9 @@
             .barul .title_active
             {
                 width: 70px;
-                height: 40px;
+                height: 32px;
                 text-align: center;
-                padding-top: 10px;
+                padding-top: 7px;
                 float: left;
                 display: block;
                 position: relative;
@@ -160,10 +160,10 @@
 
             .searchbar
             {
-                margin-top:40px;
+                margin-top:32px;
                 border-width: 0 0 1px;
                 width:100%;
-                height: 110px;
+                height: 81px;
                 background-color: #FFFFFF;
                 background-image: url("<?php echo base_url() . "img/top.png"; ?>");
                 //float: left;
@@ -277,13 +277,13 @@
                 <div class="container" style="width:1200px">
                     <div class="bar">
 
-                        <a href="#"><img style="margin-top: 30px;margin-left: 60px;float: left" src="<?php echo base_url() . "img/less-logo-large.png"; ?>"></a>
+                        <a href="#"><img style="margin-top: 15px;margin-left: 60px;float: left" src="<?php echo base_url() . "img/less-logo-large.png"; ?>"></a>
 
-                        <div class="form-group has-feedback" style="float:left;margin-top: 40px;margin-left: 40px;width: 665px">
+                        <div class="form-group has-feedback" style="float:left;margin-top: 25px;margin-left: 40px;width: 665px">
                             <input type="text" class="form-control" id="inputSuccess2" placeholder="Search">
                                 <a href="#"><span class="glyphicon glyphicon-search form-control-feedback" style="top:1px"></span></a>
                         </div>
-                        <a href="<?php echo site_url('assess/commit') ?>"><img style="margin-top: 20px;margin-left: 20px;float: left" src="<?php echo base_url() . "img/tucao.jpg"; ?>"></a>
+                        <a href="<?php echo site_url('assess/commit') ?>"><img style="margin-top: 4px;margin-left: 20px;float: left" src="<?php echo base_url() . "img/tucao.jpg"; ?>"></a>
 
                     </div>
                 </div>

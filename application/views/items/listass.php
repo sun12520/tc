@@ -42,9 +42,9 @@
 <br>
 <br>
 <p>
-    <a href="http://10.241.226.31/tucao/index.php/assess/commit"><button class="btn btn-large btn-primary" type="button">吐槽入口</button></a>
-    <a href="http://10.241.226.31/tucao/index.php/admin/review/show_assess"><button class="btn btn-large" type="button">待审核吐槽</button></a>
-    <a href="http://10.241.226.31/tucao/index.php/user/logout"><button class="btn btn-large" type="button">注销</button></a>
+    <a href="<?php echo site_url('assess/commit') ?>"><button class="btn btn-large btn-primary" type="button">吐槽入口</button></a>
+    <a href="<?php echo site_url('admin/review/show_assess') ?>"><button class="btn btn-large" type="button">待审核吐槽</button></a>
+    <a href="<?php echo site_url('user/logout') ?>"><button class="btn btn-large" type="button">注销</button></a>
 </p>
 <br>
 <br>
@@ -61,7 +61,7 @@
 <script>
 
     function zan(obj) {
-        var zan = 'http://10.241.226.31/tucao/index.php/dealass/ass_zan/' + obj.id;
+        var zan = '<?php echo site_url('dealass/ass_zan/') ?>/' + obj.id;
         var zanid = 'zan' + obj.id;
 
         $.get(zan, function(data, status) {
@@ -79,7 +79,7 @@
 
         //alert(obj.name);
 
-        var post_comm = 'http://10.241.226.31/tucao/index.php/comment/ci_comment';
+        var post_comm = '<?php echo site_url('comment/ci_comment') ?>';
         var comm_content = document.getElementById("comm_content").value;
         var username = "<?php echo $this->session->userdata('username') ?>";
         var user_id = <?php echo $this->session->userdata('user_id') ?>;
@@ -128,7 +128,7 @@
             //alert(document.getElementById("comm_tab").title);
             //if (document.getElementById("comm_tab").title == 'none')
             //{
-            var get_comm = 'http://10.241.226.31/tucao/index.php/comment/show_comment/' + obj.id;
+            var get_comm = '<?php echo site_url('comment/show_comment/') ?>/' + obj.id;
             document.getElementById("subcomm").name = obj.id + '';
             //alert(document.getElementById("subcomm").value);
             //alert(get_comm);

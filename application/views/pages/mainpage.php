@@ -71,7 +71,7 @@
 <style type="text/css">
     .leftcontent
     {
-        width: 910px;
+        width: 850px;
         float: left;
         align:center;
         //margin-left: 50px
@@ -80,13 +80,13 @@
     .itempic
     {
         float: left;
-        width: 240px;
+        width: 220px;
         //height: 200px
     }
 
     .itempic > img
     {
-        height: 200px;
+        height: 180px;
     }
 
     .dh1
@@ -99,16 +99,16 @@
     .dh1 .pic
     {
         float: left;
-        margin-top: 20px;
-        margin-left: 15px;
+        margin-top: 10px;
+        margin-left: 8px;
 
     }
 
     .dh1 .content
     {
         float: left;
-        margin-top: 10px;
-        margin-left: 20px
+        margin-top: 5px;
+        margin-left: 15px
     }
 
     .dh1_active:hover
@@ -122,14 +122,14 @@
     .dh1_active .pic
     {
         float: left;
-        margin-top: 20px;
-        margin-left: 15px
+        margin-top: 10px;
+        margin-left: 8px
     }
     .dh1_active .content
     {
         float: left;
-        margin-top: 10px;
-        margin-left: 20px
+        margin-top: 5px;
+        margin-left: 15px
     }
     .dh1_active .content hr
     {
@@ -144,14 +144,14 @@
         font-family:"Microsoft YaHei";
         letter-spacing:1px;
         color: #666666;
-        margin-right: 22px
+        margin-right: 12px
     }
     .dh1_active .content text h5 a small
     {
         font-family:"Microsoft YaHei";
         letter-spacing:1px;
         color: #FFFFFF;
-        margin-right: 22px
+        margin-right: 12px
     }
 
     .dh1 .detail .panel
@@ -180,10 +180,14 @@
     }
 
 
+    a:link {text-decoration:none;}
+    a:visited {text-decoration:none;}
+    a:hover {text-decoration:underline}
+
 
 </style>
-<div class="container" style="width: 1200px; padding: 0">
-    <div class="panel panel-default" style="position:absolute;z-index:100; top:153px;width: 270px;border: 0">
+<div class="container" style="width: 1100px; padding: 0">
+    <div class="panel panel-default" style="position:absolute;z-index:100; top:118px;width: 240px;border: 0">
         <div class="panel-body" style="padding: 0">
             <div class="dh1" onmouseover="this.className = 'dh1_active'" onmouseout="this.className = 'dh1'">
                 <div class="pic">
@@ -278,7 +282,7 @@
                 <div class="content">
                     <text><h4 style="margin-top: 5px;font-family:'Microsoft YaHei';letter-spacing:1px;"><strong>数码通讯</strong></h4></text>
                     <text><h5><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a></h5></text>
-                    <hr style="margin-top: 8px;margin-bottom: 0" />
+
                 </div>
                 <div class="detail">
                     <div class="panel panel-default">
@@ -288,38 +292,22 @@
                     </div>
                 </div>
             </div>
-            <div class="dh1" onmouseover="this.className = 'dh1_active'" onmouseout="this.className = 'dh1'">
-                <div class="pic">
-                    <img src="<?php echo base_url() . "img/jz-35-35.png"; ?>" alt="...">
-                </div>
-                <div class="content">
-                    <text><h4 style="margin-top: 5px;font-family:'Microsoft YaHei';letter-spacing:1px;"><strong>数码通讯</strong></h4></text>
-                    <text><h5><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a><a><small>数码</small></a></h5></text>
-                    <hr style="margin-top: 8px;margin-bottom: 0" />
-                </div>
-                <div class="detail">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            Basic panel example6
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 
     <div id="left" class="leftcontent">
-        <div class="alert alert-warning" style=" margin-bottom: 0;margin-top: 20px;padding: 0;height: 50px" role="alert">...</div>
-        
+        <div class="alert alert-warning" style=" margin-bottom: 0;margin-top: 438px;padding: 0;height: 50px" role="alert">...</div>
+
         <?php foreach ($ass_list as $row): ?>
             <div style="padding-top: 20px;padding-bottom: 20px">
                 <div class="itempic">
                     <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
                 </div>
-                <div style="float: left;width: 670px;height: 247px">
-                    
-                    <div id="title"><h3 class="titchr" style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong><?php echo $row->title ?></strong></h3></div>
-                    <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px;height:61px">
+                <div style="float: left;width: 630px;height: 247px">
+
+                    <div id="title"><a href="<?php echo site_url('assess/detail'); ?>"><h3 class="titchr" style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong><?php echo $row->title ?></strong></h3></a></div>
+                    <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px;height:41px">
                         <span class="contchr" style="">
                             <strong><?php echo $row->user_id ?>：</strong>
                             <?php echo $row->Content ?>
@@ -344,13 +332,13 @@
                         <button type="button" class="btn btn-danger" style="float: right"><span class="contbut">去看看</span><span class="glyphicon glyphicon-chevron-right"></span></button>
                     </div>
                     <hr style=" bottom: 0">
-                    
+
                 </div>
             </div>
         <?php endforeach; ?>
 
     </div>
-    <div id="right" style="width: 260px;padding-top: 20px;padding-left: 20px;float: left">
+    <div id="right" style="width: 230px;padding-top: 438px;padding-left: 20px;float: left">
         <div class="panel panel-default" style="width: 240px">
             <div class="panel-body" style=" padding-top: 0px; ">
                 <div style="clear:both">
@@ -512,7 +500,7 @@
                 //margin-top: 42px;
                 z-index: 1000;
                 position: absolute;
-                top:218px
+                top:178px
             }
 
             .user .info
@@ -593,101 +581,138 @@
 
 
 <script language="javascript">
-var total_page=<?php echo $totle_page ?>;
-var url="<?php echo site_url("assess/view/mainpage/") ?>";//当前链接,格式如下，例如：?aa=1&page  ,somepage.php?action=1&cat=1&page
-var current_page = <?php echo $current_page ?>;
+    var total_page =<?php echo $totle_page ?>;
+    var defurl = "<?php echo site_url("assess/view/mainpage") ?>";//当前链接,格式如下，例如：?aa=1&page  ,somepage.php?action=1&cat=1&page
+    var current_page = <?php echo $current_page ?>;
 
 
-$().ready(function(){
+    $(window).scroll(function() {
+        var scrollTop = $(this).scrollTop();
+        var topfooter = $("#page").offset().top;
+        var scrollHeight = $(document).height();
+        var windowHeight = $(this).height();
+        //alert(topfooter + '_' + scrollHeight + '_' + scrollTop+'_'+windowHeight);
 
-        document.getElementById('page').innerHTML=pagination(current_page);
-	//$(".page").(pagination(1))
-	
-	page_link();
-})
+        if (scrollTop + windowHeight > topfooter) {
+            //if (topfooter+scrollHeight == scrollTop){
+            //alert("you are in the bottom");
+            page_link(document.getElementById('curr'));
 
 
 
-function page_link()
-{
-	$(".page A").click(function(){
-		var page=parseInt($(this).attr("page"))
- 
-		$(".recordlist").load($(this).attr("href"),"",function(){$(".page").html(pagination(page));page_link();})
-		return false;
-	})
-}
+        }
+    });
 
-function pagination(current_page)
-{
- 
-	//翻页链接开始
-	current_page = current_page<=0 ? 1 : current_page;
-	current_page = current_page>total_page?total_page:current_page;
+    $().ready(function() {
+
+        document.getElementById('page').innerHTML = pagination(current_page);
+
+
+        //$(".page").(pagination(1))
+
+        //page_link();
+    })
+
+
+
+    function page_link(obj)
+    {
+        var currentpage = $(obj).attr("page");
+        var nextpage = parseInt(currentpage) + 1;
+        var url = "<?php echo site_url("assess/getdatas/") ?>/" + nextpage.toString();
+        //alert(url);
+
+
+        if (parseInt(currentpage) % 3) {
+            if (nextpage <= total_page)
+            {
+                //alert(currentpage);
+                $.get(url, function(data, status) {
+                    if (status == 'success')
+                    {
+                        document.getElementById('left').innerHTML = document.getElementById('left').innerHTML + data;
+                    }
+                });
+                document.getElementById('page').innerHTML = pagination(nextpage);
+            }
+        }
+
+    }
+
+    function pagination(current_page)
+    {
+        //alert(current_page);
+
+        //翻页链接开始
+        current_page = current_page <= 0 ? 1 : current_page;
+        current_page = current_page > total_page ? total_page : current_page;
         //alert(total_page);
-	var page_link="";
-	if (total_page>1)
-	{
-		//page_link="<li><a>一共"+total_page+"页</a></li>";
-		//page_link+="<li><a>当前第"+current_page+"页</a></li>";
-		//page_link+='<li><a style="border: 0" href="'+url+'/1 page=1>首页</a></li>';
+        var page_link = "";
+        if (total_page > 1)
+        {
+            //page_link="<li><a>一共"+total_page+"页</a></li>";
+            //page_link+="<li><a>当前第"+current_page+"页</a></li>";
+            //page_link+='<li><a style="border: 0" href="'+url+'/1 page=1>首页</a></li>';
 
-		if (current_page>1){
-			//页码大于1的时候，显示上一页翻页链接
-			var pre_page=current_page-1;
-			page_link+='<li><a style="border: 0" href="'+url+"/"+pre_page+'" page='+pre_page+'>&laquo;上一页</a></li>';
-		}
-		//翻页列表
+            if (current_page > 1) {
+                //页码大于1的时候，显示上一页翻页链接
+                var pre_page = current_page - 1;
+                //page_link += '<li><button style="border: 0" value="'+url+'/'+pre_page+'" onclick="page_link()">&laquo;上一页';
+                page_link += '<li><a style="border: 0" href="' + defurl + "/" + pre_page + '" page=' + pre_page + ' onclick="page_link(this)">&laquo;上一页</a></li>';
+            }
+            //翻页列表
 
-		//步进分页，翻页列表的数字始终只显示9个或者自定义的个数,本例定义只显示9个,当前页左右各显示4个页码
-		if (total_page>9)
-		{
-			if (current_page>4)
-			{
-				var from=current_page-4;
-				var to=current_page+4;
-				if (to>total_page)
-				{
-					var from=total_page-8;
-					var to=total_page;
-				}
-				 
-			}
-			else
-			{
-				var from=1;
-				var to=9;
-			}
+            //步进分页，翻页列表的数字始终只显示9个或者自定义的个数,本例定义只显示9个,当前页左右各显示4个页码
+            if (total_page > 9)
+            {
+                if (current_page > 4)
+                {
+                    var from = current_page - 4;
+                    var to = current_page + 4;
+                    if (to > total_page)
+                    {
+                        var from = total_page - 8;
+                        var to = total_page;
+                    }
 
-		}
-		else
-		{
-			var from=1;
-			var to=total_page;
-		}
-		for (var i=from;i<=to;i++)
-		{
-			if (i==current_page)
-			{
-				//高亮当前页页码
-				page_link+='<li class="currentpage"><a style="border: 0" href="'+url+"/"+i+'" page="'+i+'">'+i+'</a></li>';
-			}
-			else
-			{
-				page_link+='<li><a style="border: 0" href="'+url+"/"+i+'" page="'+i+'"  page="'+i+'">'+i+'</a></li>';
-			}
+                }
+                else
+                {
+                    var from = 1;
+                    var to = 9;
+                }
 
-		}
-		//页码小于总页数的时候显示下一页翻页链接
-		var next_page=current_page+1;
-		if(next_page<total_page)
-		{
-			page_link+='<li><a style="border: 0" href="'+url+"/"+next_page+'" page="'+next_page+'">下一页&raquo;</a></li>';
-		}
-		page_link+='<li><a style="border: 0" href="'+url+"/"+total_page+'" page="'+total_page+'>最后一页</a></li>';
-	}
-	return page_link;
-}
+            }
+            else
+            {
+                var from = 1;
+                var to = total_page;
+            }
+            //alert(page_link);
+            for (var i = from; i <= to; i++)
+            {
+                if (i == current_page)
+                {
+                    //高亮当前页页码
+                    page_link += '<li class="currentpage"><a id="curr" style="border: 0" href="' + defurl + "/" + i + '" page="' + i + '" onclick="page_link(this)">' + i + '</a></li>';
+                }
+                else
+                {
+                    page_link += '<li><a style="border: 0" href="' + defurl + "/" + i + '" page="' + i + '"  page="' + i + '" onclick="page_link(this)">' + i + '</a></li>';
+                }
+
+            }
+            //alert(page_link);
+            //页码小于总页数的时候显示下一页翻页链接
+            var next_page = current_page + 1;
+            if (current_page < total_page)
+            {
+                page_link += '<li><a style="border: 0" href="' + defurl + "/" + next_page + '" page="' + next_page + '"  onclick="page_link(this)">下一页&raquo;</a></li>';
+            }
+            //page_link+='<li><a style="border: 0" href="'+url+"/"+total_page+'" page="'+total_page+'>最后一页</a></li>';
+        }
+        return page_link;
+    }
 
 </script>
 
@@ -701,18 +726,7 @@ function pagination(current_page)
 
 <div style=" margin-left: 500px;height: 34px">
     <ul id="page" class="pagination" style="margin: 0;">
-        <li><a href="#" style="border: 0">&laquo;上一页</a></li>
-        <li><a href="#" style="border: 0">1</a></li>
-        <li><a href="#" style="border: 0">2</a></li>
-        <li><a href="#" style="border: 0">3</a></li>
-        <li><a href="#" style="border: 0">4</a></li>
-        <li><a href="#" style="border: 0">5</a></li>
-        <li><a href="#" style="border: 0">6</a></li>
-        <li><a href="#" style="border: 0">7</a></li>
-        <li><a href="#" style="border: 0">8</a></li>
-        <li><a href="#" style="border: 0">...</a></li>
-        <li><a href="#" style="border: 0">21</a></li>
-        <li><a href="#" style="border: 0">下一页&raquo;</a></li>
+
     </ul>
 </div>
 

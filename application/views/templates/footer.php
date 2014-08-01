@@ -50,22 +50,26 @@
         margin-top: 10px;
         margin-left: 30px
     }
-    .footpic
+    .footpic a img
     {
-        width: 100%;
+        //max-width:1280 px;
+        //width: 1280 px;
+        //overflow: hidden;
+        //width:expression(this.width>1480?"1480px":this.width);
+        //width:expression(document.body.clientWidth > 780? "780px": "auto" );
         bottom: 0;
         margin-bottom: 0;
         margin-top: 10px
 
     }
 
-
 </style>
 </div>
-<div class="footpic">
-    <a><img src="<?php echo base_url() . "img/footer.jpg"; ?>"></a>
+<div style="width:100%">
+    <div class="footpic" id="footer">
+        <a><img src="<?php echo base_url() . "img/footer.jpg"; ?>" onload="reSizeImg(this)"></a>
+    </div>
 </div>
-
 <div class="bottombar">
     <div class="container" style="width:100%">
         <div class="bar">
@@ -81,7 +85,41 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function reSizeImg(obj) {
 
+        //alert(document.body.style.overflow);
+        //alert(document.body.scroll);
+        //alert(document.body.scrollHeight);
+        //alert(window.screen.height);
+
+        if (document.body.style.overflow != "hidden" && document.body.scroll != "no" &&
+                document.body.scrollHeight > window.screen.height)
+        {
+            reWidth = window.screen.width - 17;
+            //alert("有滚动条");
+        } else
+        {
+            reWidth = window.screen.width
+            //alert("无滚动条");
+        }
+        //alert(obj.offsetWidth);
+
+        //if (obj.readyState == "complete")
+        //{
+        //alert('aaa');
+        var imgWidth = obj.offsetWidth;
+        var imgHeight = obj.offsetHeight;
+        if (imgWidth > reWidth)
+        {
+            p = imgWidth / reWidth;
+            cHeight = Math.floor(imgHeight / p);
+            obj.width = reWidth;
+            obj.height = cHeight;
+        }
+        //}
+    }
+</script>
 </body>
 </html>
 
