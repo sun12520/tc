@@ -6,12 +6,33 @@
  * and open the template in the editor.
  */
 class search extends CI_Controller{
+    
+    private static $username;
+    
     public function __construct() {
         parent::__construct();
         require_once(APPPATH . 'libraries/sphinxapi.php');
+        $this->load->model('Do_assess');
+        $this->load->library('Userlib');
+
+        $url_this = "http://" . $_SERVER ['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+        self::$username = $this->session->userdata('username');
     }
     
     function index(){
+        $data['title'] = "搜索";
+        $data['username'] = self::$username;
+        
+        $url = $this->input->post('url');
+        $data['url'] = $url;
+        
+        $this->load->view('templates/header', $data);
+        $this->load->view('pages/search', $data);
+        $this->load->view('templates/footer', $data);
+    }
+            
+    
+    function search(){
         $mode = SPH_MATCH_BOOLEAN;
         $index = '*';
         $q = '中午|another';

@@ -20,7 +20,7 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <style type="text/css">
             body { 
-                font-family: Verdana,Arial,Tahoma; 
+                font-family: "Microsoft YaHei"; 
                 font-size:14px; 
                 margin:0 auto; 
             } 

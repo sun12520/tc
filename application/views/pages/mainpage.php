@@ -26,7 +26,7 @@
             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            
         </ol>
 
         <!-- Wrapper for slides -->
@@ -53,6 +53,7 @@
         </div>
 
         <!-- Controls -->
+        <!--
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 
             <span class="sr-only">Previous</span>
@@ -61,6 +62,7 @@
 
             <span class="sr-only">Next</span>
         </a>
+        -->
     </div>
 </div>
 
@@ -338,8 +340,8 @@
         <?php endforeach; ?>
 
     </div>
-    <div id="right" style="width: 230px;padding-top: 438px;padding-left: 20px;float: left">
-        <div class="panel panel-default" style="width: 240px">
+    <div id="right" style="width: 200px;padding-top: 438px;padding-left: 20px;float: left">
+        <div class="panel panel-default" style="width: 200px">
             <div class="panel-body" style=" padding-top: 0px; ">
                 <div style="clear:both">
                     <div style="float: left;margin-top: 25px">
@@ -388,7 +390,7 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-danger" style="width: 240px">
+        <div class="panel panel-danger" style="width: 200px">
             <div class="panel-heading">
                 <h3 class="panel-title" style="font-family:'Microsoft YaHei';letter-spacing:1px;">最热门</h3>
             </div>
@@ -422,7 +424,7 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-info" style="width: 240px">
+        <div class="panel panel-info" style="width: 200px">
             <div class="panel-heading">
                 <h3 class="panel-title" style="font-family:'Microsoft YaHei';letter-spacing:1px;">最悲催</h3>
             </div>
@@ -456,7 +458,7 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-warning" style="width: 240px">
+        <div class="panel panel-warning" style="width: 200px">
             <div class="panel-heading">
                 <h3 class="panel-title" style="font-family:'Microsoft YaHei';letter-spacing:1px;">最奇葩</h3>
             </div>
@@ -495,7 +497,7 @@
         <style type="text/css">
             .user
             {
-                width: 240px;
+                width: 200px;
                 height: 350px;
                 //margin-top: 42px;
                 z-index: 1000;
@@ -507,7 +509,7 @@
             {
                 text-align: center;
                 height: 290px;
-                width: 240px;
+                width: 200px;
                 background:rgba(0,0,0,.6);
                 border-bottom:1px solid #686864;
                 border-right:1px solid rgba(255,255,255,.1)
