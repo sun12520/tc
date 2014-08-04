@@ -164,7 +164,7 @@
                 border-width: 0 0 1px;
                 width:100%;
                 height: 81px;
-                background-color: #FFFFFF;
+                background-color: #f9f9f9;
                 background-image: url("<?php echo base_url() . "img/top.png"; ?>");
                 //float: left;
                 //position: fixed;
@@ -281,7 +281,7 @@
 
                         <div class="form-group has-feedback" style="float:left;margin-top: 25px;margin-left: 40px;width: 665px">
                             <input type="text" class="form-control" id="inputSuccess2" placeholder="Search">
-                                <a href="#"><span class="glyphicon glyphicon-search form-control-feedback" style="top:1px"></span></a>
+                                <a href="<?php echo site_url('search'); ?>"><span class="glyphicon glyphicon-search form-control-feedback" style="top:1px"></span></a>
                         </div>
                         <a href="<?php echo site_url('assess/commit') ?>"><img style="margin-top: 4px;margin-left: 20px;float: left" src="<?php echo base_url() . "img/tucao.jpg"; ?>"></a>
 

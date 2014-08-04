@@ -12,11 +12,11 @@
 
         height: auto;
         overflow: hidden;
-        background-color: #FBE6F2;
+        background-color: #fbf0f1;
         padding-top: 20px;
         padding-bottom: 20px;
         margin-top:10px;
-        border: 2px solid #E13300;
+        border: 2px solid #f7d0d4;
         border-radius:10px;
     }
 
@@ -39,7 +39,7 @@
         height:80px;
     }
 
-    
+
     .rank
     { 
         background-image:url('<?php echo base_url() . "img/rank.png"; ?>');
@@ -74,11 +74,53 @@
     .test_box p{ margin: 0; }
 
 
-
+    .deatiltit
+    {
+        font-family:"Microsoft YaHei";
+        letter-spacing:1px;
+        font-size:18px;
+        color:#333333;
+    }
+    
+    .detailcont
+    {
+        font-family:"Microsoft YaHei";
+        letter-spacing:1px;
+        font-size:14px;
+        color:#333333;
+    }
+    .nav-tabs >li>a
+    {
+        font-family:"Microsoft YaHei";
+         letter-spacing:1px;
+        font-size:18px;
+        color:#666666;
+    }
 
 </style>
 
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".textcont").each(function()
+        {
+            var maxwidth = 250;
+            if ($(this).text().length > maxwidth)
+            {
+                var laststr = $(this).text().substring(maxwidth, $(this).text().length);
+                $(this).text($(this).text().substring(0, maxwidth));
+                $(this).html($(this).html() + '......<a href="javascript:void(0);" data="' + laststr + '" id="' + "itemid" + '" onclick="showall(this);">显示全部</a>');
+            }
+        });
+    });
 
+    function showall(obj) {
+        var maxwidth = 250;
+        var laststr = document.getElementById(obj.id).getAttribute("data");
+        obj.parentNode.innerHTML = obj.parentNode.innerHTML.substring(0, maxwidth) + laststr;
+        return false;
+    }
+
+</script>
 
 <div class="container" style="width:1000px;padding: 0;">
     <div id="left" class="leftcontent">
@@ -89,11 +131,11 @@
             <div class="itempic">
                 <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
             </div>
-            <div style="float: left;width: 550px;height:auto ;margin-bottom: 10px;overflow: hidden">
+            <div style="float: left;width: 570px;height:auto ;margin-bottom: 10px;overflow: hidden">
 
-                <div id="title"><h3 class="titchr" style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>商品标题！电冰箱</strong></h3></div>
+                <div id="title"><h3 class="deatiltit" style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>商品标题！电冰箱</strong></h3></div>
                 <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px;height:auto;width: 550px;overflow: hidden">
-                    <span class="contchr" style="">
+                    <span class="detailcont" style="">
                         <div id="userid" style="margin-bottom:5px"><img class="rank" style=" margin-left: 0"></div>
 
                         <div class="textcont">内容:iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
@@ -105,9 +147,9 @@
                 </div>
 
                 <div id="tag" style="margin-top: 25px;margin-bottom: 0;margin-left: 20px">
-                    <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                    <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                    <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
+                    <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px;background-color:#f1e1e2 ;color: #c18188; border: 0;border-radius:4px">Button</button>
+                    <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px;background-color:#f1e1e2 ;color: #c18188; border: 0;border-radius:4px">Button</button>
+                    <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px;background-color:#f1e1e2 ;color: #c18188; border: 0;border-radius:4px">Button</button>
                 </div>
             </div>
         </div>
@@ -126,7 +168,7 @@
         </div>
         <div id="myTabContent" class="tab-content"  style="height:auto;overflow: hidden">
             <div class="tab-pane fade in active" id="home" style="height:auto;overflow: hidden">
-                <div id="tcdetail" style="height:auto;overflow: hidden">
+                <div id="tcdetail" style="height:auto;overflow: hidden"  class="detailcont">
                     <div id="pic" style="float: left;margin: 20px">
                         <a href="#" class="avatar"  target="_blank" >
                             <img src="<?php echo base_url() . "img/head.jpg"; ?>">
@@ -142,12 +184,12 @@
                         </div>
                         <div style="width:650px;margin-top: 15px">
                             <text>时间</text>
-                            <span class="glyphicon glyphicon-heart-empty" style="margin-left: 350px;margin-right: 10px"><text style="margin-left: 5px">同情122</span>
+                            <span class="glyphicon glyphicon-heart-empty" style="margin-left: 300px;margin-right: 10px"><text style="margin-left: 5px">同情122</span>
                             <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
-                            <a href="javascript:void(0);" onclick="showcomment();"><span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span></a>
+                            <a href="javascript:void(0);" value="assess_id1" onclick="showcomment(this);"><span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span></a>
 
                         </div>
-                        <div id="assess_id1" class="comment" style="display: none;background-color: #E5E5E5;width: 650px;height: auto;overflow:hidden">
+                        <div id="assess_id1" class="detailcont" style=" font-size: 12px;display: none;background-color: #E5E5E5;width: 650px;height: auto;overflow:hidden">
                             <div id="commhead" style="width:650px;height: auto;overflow:hidden">
                                 <div id="commpic" style="width:40px;height: auto;float: left;margin: 10px">
                                     <a href="#" class="avatar" target="_blank" >
@@ -177,9 +219,9 @@
                                         </text>
                                     </div>
 
-                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px">
+                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px;color: #666666;">
                                         <text>2天前</text>
-                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 500px;margin-right: 10px"></span>
+                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 450px;margin-right: 10px"></span>
 
                                     </div>
                                 </div>
@@ -199,9 +241,9 @@
                                         TV。iOS 派生自 OS X，它们共享 Darwin 
                                         </text>
                                     </div>
-                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px">
+                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px;color: #666666;">
                                         <text>2天前</text>
-                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 500px;margin-right: 10px"></span>
+                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 450px;margin-right: 10px"></span>
 
                                     </div>
                                 </div>
@@ -211,7 +253,7 @@
                         <hr>
                     </div>
                 </div>
-                <div id="tcdetail" style="height:auto;overflow: hidden">
+                <div id="tcdetail" style="height:auto;overflow: hidden"  class="detailcont">
                     <div id="pic" style="float: left;margin: 20px">
                         <a href="#" class="avatar"  target="_blank" >
                             <img src="<?php echo base_url() . "img/head.jpg"; ?>">
@@ -227,12 +269,12 @@
                         </div>
                         <div style="width:650px;margin-top: 15px">
                             <text>时间</text>
-                            <span class="glyphicon glyphicon-heart-empty" style="margin-left: 350px;margin-right: 10px"><text style="margin-left: 5px">同情122</span>
+                            <span class="glyphicon glyphicon-heart-empty" style="margin-left: 300px;margin-right: 10px"><text style="margin-left: 5px">同情122</span>
                             <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
-                            <a href="javascript:void(0);" onclick="showcomment();"><span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span></a>
+                            <a href="javascript:void(0);" value="assess_id2" onclick="showcomment(this);"><span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span></a>
 
                         </div>
-                        <div id="assess_id1" class="comment" style="display: none;background-color: #E5E5E5;width: 650px;height: auto;overflow:hidden">
+                        <div id="assess_id2" class="detailcont" style=" font-size: 12px;display: none;background-color: #E5E5E5;width: 650px;height: auto;overflow:hidden">
                             <div id="commhead" style="width:650px;height: auto;overflow:hidden">
                                 <div id="commpic" style="width:40px;height: auto;float: left;margin: 10px">
                                     <a href="#" class="avatar" target="_blank" >
@@ -250,7 +292,7 @@
                             <div id="comm" style="width:700px;height: auto;overflow:hidden">
                                 <div id="commpic" style="width:40px;height: auto;float: left;margin: 10px">
                                     <a href="#" class="avatar" target="_blank" >
-                                        <img style="width:40px;height: 40px" src="<?php echo base_url() . "img/head.jpg"; ?>">
+                                        <img style="width:30px;height: 30px" src="<?php echo base_url() . "img/head.jpg"; ?>">
                                     </a>
                                 </div>
                                 <div style="float:left;width: 550px;margin-top: 5px">
@@ -262,9 +304,9 @@
                                         </text>
                                     </div>
 
-                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px">
+                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px;color: #666666;">
                                         <text>2天前</text>
-                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 550px;margin-right: 10px"></span>
+                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 450px;margin-right: 10px"></span>
 
                                     </div>
                                 </div>
@@ -273,7 +315,7 @@
                             <div id="comm" style="width:700px;height: auto;overflow:hidden">
                                 <div id="commpic" style="width:40px;height: auto;float: left;margin: 10px">
                                     <a href="#" class="avatar" target="_blank" >
-                                        <img style="width:40px;height: 40px" src="<?php echo base_url() . "img/head.jpg"; ?>">
+                                        <img style="width:30px;height: 30px" src="<?php echo base_url() . "img/head.jpg"; ?>">
                                     </a>
                                 </div>
                                 <div style="float:left;width: 550px;margin-top: 5px">
@@ -284,9 +326,9 @@
                                         TV。iOS 派生自 OS X，它们共享 Darwin 
                                         </text>
                                     </div>
-                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px">
+                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px;color: #666666;">
                                         <text>2天前</text>
-                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 550px;margin-right: 10px"></span>
+                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 450px;margin-right: 10px"></span>
 
                                     </div>
                                 </div>
@@ -296,7 +338,7 @@
                         <hr>
                     </div>
                 </div>
-                <div id="tcdetail" style="height:auto;overflow: hidden">
+                <div id="tcdetail" style="height:auto;overflow: hidden"  class="detailcont">
                     <div id="pic" style="float: left;margin: 20px">
                         <a href="#" class="avatar"  target="_blank" >
                             <img src="<?php echo base_url() . "img/head.jpg"; ?>">
@@ -312,12 +354,12 @@
                         </div>
                         <div style="width:650px;margin-top: 15px">
                             <text>时间</text>
-                            <span class="glyphicon glyphicon-heart-empty" style="margin-left: 350px;margin-right: 10px"><text style="margin-left: 5px">同情122</span>
+                            <span class="glyphicon glyphicon-heart-empty" style="margin-left: 300px;margin-right: 10px"><text style="margin-left: 5px">同情122</span>
                             <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
-                            <a href="javascript:void(0);" onclick="showcomment();"><span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span></a>
+                            <a href="javascript:void(0);" value="assess_id3" onclick="showcomment(this);"><span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span></a>
 
                         </div>
-                        <div id="assess_id1" class="comment" style="display: none;background-color: #E5E5E5;width: 650px;height: auto;overflow:hidden">
+                        <div id="assess_id3" class="detailcont" style=" font-size: 12px;display: none;background-color: #E5E5E5;width: 650px;height: auto;overflow:hidden">
                             <div id="commhead" style="width:650px;height: auto;overflow:hidden">
                                 <div id="commpic" style="width:40px;height: auto;float: left;margin: 10px">
                                     <a href="#" class="avatar" target="_blank" >
@@ -335,7 +377,7 @@
                             <div id="comm" style="width:700px;height: auto;overflow:hidden">
                                 <div id="commpic" style="width:40px;height: auto;float: left;margin: 10px">
                                     <a href="#" class="avatar" target="_blank" >
-                                        <img style="width:40px;height: 40px" src="<?php echo base_url() . "img/head.jpg"; ?>">
+                                        <img style="width:30px;height: 30px" src="<?php echo base_url() . "img/head.jpg"; ?>">
                                     </a>
                                 </div>
                                 <div style="float:left;width: 550px;margin-top: 5px">
@@ -347,84 +389,20 @@
                                         </text>
                                     </div>
 
-                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px">
+                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px;color: #666666;">
                                         <text>2天前</text>
-                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 550px;margin-right: 10px"></span>
+                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 450px;margin-right: 10px"></span>
 
                                     </div>
                                 </div>
                                 <hr style="width:700px;">
                             </div>
                             <div id="comm" style="width:700px;height: auto;overflow:hidden">
-                                <div id="commpic" style="width:40px;height: auto;float: left;margin: 10px">
-                                    <a href="#" class="avatar" target="_blank" >
-                                        <img style="width:40px;height: 40px" src="<?php echo base_url() . "img/head.jpg"; ?>">
-                                    </a>
-                                </div>
-                                <div style="float:left;width: 550px;margin-top: 5px">
-                                    <div  style="width:550px"><text>用户ID:</text></div>
-                                    <div style="width:550px">
-                                        <text>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
-                                        TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
-                                        TV。iOS 派生自 OS X，它们共享 Darwin 
-                                        </text>
-                                    </div>
-                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px">
-                                        <text>2天前</text>
-                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 550px;margin-right: 10px"></span>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
-
-
-                <div id="tcdetail" style="height:auto;overflow: hidden">
-                    <div id="pic" style="float: left;margin: 20px">
-                        <a href="#" class="avatar"  target="_blank" >
-                            <img src="<?php echo base_url() . "img/head.jpg"; ?>">
-                        </a>
-                    </div>
-                    <div id='usertc' style="width:650px;float:left;margin-top: 20px">
-                        <div id="userid">用户ID<img class="rank"></div>
-                        <div id="usercontent" style="width:650px;margin-top: 10px">
-                            <text>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
-                            TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
-                            TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。
-                            </text>
-                        </div>
-                        <div style="width:650px;margin-top: 15px">
-                            <text>时间</text>
-                            <span class="glyphicon glyphicon-heart-empty" style="margin-left: 350px;margin-right: 10px"><text style="margin-left: 5px">同情122</span>
-                            <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
-                            <a href="javascript:void(0);" onclick="showcomment();"><span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span></a>
-
-                        </div>
-                        <div id="assess_id1" class="comment" style="display: none;background-color: #E5E5E5;width: 650px;height: auto;overflow:hidden">
-                            <div id="commhead" style="width:650px;height: auto;overflow:hidden">
                                 <div id="commpic" style="width:40px;height: auto;float: left;margin: 10px">
                                     <a href="#" class="avatar" target="_blank" >
                                         <img style="width:30px;height: 30px" src="<?php echo base_url() . "img/head.jpg"; ?>">
                                     </a>
                                 </div>
-                                <div style="float:left;width: 500px;margin-top: 10px">
-                                    <div class="test_box" contenteditable=true></div>
-                                </div>
-                                <div style="float:left;margin-top: 10px;margin-left: 10px">
-                                    <button type="button" class="btn btn-default">回复</button>
-                                </div>
-                                <hr style="width:700px;">
-                            </div>
-                            <div id="comm" style="width:700px;height: auto;overflow:hidden">
-                                <div id="commpic" style="width:40px;height: auto;float: left;margin: 10px">
-                                    <a href="#" class="avatar" target="_blank" >
-                                        <img style="width:40px;height: 40px" src="<?php echo base_url() . "img/head.jpg"; ?>">
-                                    </a>
-                                </div>
                                 <div style="float:left;width: 550px;margin-top: 5px">
                                     <div  style="width:550px"><text>用户ID:</text></div>
                                     <div style="width:550px">
@@ -433,32 +411,9 @@
                                         TV。iOS 派生自 OS X，它们共享 Darwin 
                                         </text>
                                     </div>
-
-                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px">
+                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px;color: #666666;">
                                         <text>2天前</text>
-                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 550px;margin-right: 10px"></span>
-
-                                    </div>
-                                </div>
-                                <hr style="width:700px;">
-                            </div>
-                            <div id="comm" style="width:700px;height: auto;overflow:hidden">
-                                <div id="commpic" style="width:40px;height: auto;float: left;margin: 10px">
-                                    <a href="#" class="avatar" target="_blank" >
-                                        <img style="width:40px;height: 40px" src="<?php echo base_url() . "img/head.jpg"; ?>">
-                                    </a>
-                                </div>
-                                <div style="float:left;width: 550px;margin-top: 5px">
-                                    <div  style="width:550px"><text>用户ID:</text></div>
-                                    <div style="width:550px">
-                                        <text>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
-                                        TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
-                                        TV。iOS 派生自 OS X，它们共享 Darwin 
-                                        </text>
-                                    </div>
-                                    <div style="width: 700px;margin-top: 5px;margin-left: 10px">
-                                        <text>2天前</text>
-                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 550px;margin-right: 10px"></span>
+                                        <span class="glyphicon glyphicon-heart-empty" style="margin-left: 450px;margin-right: 10px"></span>
 
                                     </div>
                                 </div>
@@ -466,11 +421,11 @@
                             </div>
                         </div>
                         <hr>
-
-
                     </div>
-
                 </div>
+
+
+                
                 <div style=" margin-left: 500px;height: 34px">
                     <ul id="page" class="pagination" style="margin: 0;">
                         <li>
@@ -718,15 +673,17 @@
 
 
 <script type="text/javascript">
-    function showcomment()
+    function showcomment(obj)
     {
-        if (document.getElementById('assess_id1').style.display == "block")
+        var id = obj.getAttribute("value");
+        //alert (id);
+        if (document.getElementById(id).style.display == "block")
         {
-            document.getElementById('assess_id1').style.display = "none";
+            document.getElementById(id).style.display = "none";
         }
         else
-            document.getElementById('assess_id1').style.display = "block";
-        return false;
+            document.getElementById(id).style.display = "block";
+        
     }
 
 </script>

@@ -25,7 +25,8 @@
     .searchpic
     {
         float: left;
-        margin-left:20px;
+        margin-left:15px;
+        margin-top:20px;
         width: 180px;
         //height: 200px
     }
@@ -50,6 +51,23 @@
         width: 550px;
         height:auto ;
         margin-bottom: 25px
+    }
+
+
+    .deatiltit
+    {
+        font-family:"Microsoft YaHei";
+        letter-spacing:1px;
+        font-size:18px;
+        color:#333333;
+    }
+
+    .detailcont
+    {
+        font-family:"Microsoft YaHei";
+        letter-spacing:1px;
+        font-size:13px;
+        color:#333333;
     }
 
 
@@ -81,10 +99,10 @@
 <div class="container" style="width:1000px;padding: 0; ">
     <div id="left" class="leftcontent">
         <div style="padding-top: 10px;">
-            <a>首页</a>>移动电源搜索结果
+            <a>首页</a>>“移动电源”的搜索结果
         </div>
 
-        <div style="margin-top:10px;background-color: #D0D0D0">
+        <div style="margin-top:10px;margin-bottom:20px;font-size: 18px">
             <ul id="myTab" class="nav nav-tabs">
                 <li class="active">
                     <a href="#home" data-toggle="tab">
@@ -101,14 +119,15 @@
         <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade in active" id="home">
                 <div class="itemsearch" style="">
+                    <div id="title"><h3 class="deatiltit" style="margin-top: 0;margin-bottom: 0;margin-left: 15px"><strong>商品标题！电冰箱商品标题！电冰箱商品标题！电冰箱</strong></h3></div>
                     <div class="searchpic">
                         <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
                     </div>
                     <div class="searchcont">
 
-                        <div id="title"><h3 class="titchr" style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>商品标题！电冰箱</strong></h3></div>
-                        <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px;height:auto;">
-                            <span class="contchr" style="">
+
+                        <div id="Content" style="margin-top: 20px;margin-bottom: 0;margin-left: 20px;height:auto;">
+                            <span class="detailcont" style="">
                                 <div id="userid" style="margin-bottom:5px"><img class="rank" style=" margin-left: 0"></div>
 
                                 <div class="textcont">内容:iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
@@ -120,9 +139,9 @@
                         </div>
 
                         <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
                         </div>
                         <div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px" class="contchr">
                             <span class="glyphicon glyphicon-heart-empty" style="margin-right: 10px"><text style="margin-left: 5px">同情122</span>
@@ -134,27 +153,29 @@
                 </div>
                 <hr style="margin-top:0">
                 <div class="itemsearch" style="">
+                    <div id="title"><h3 class="deatiltit" style="margin-top: 0;margin-bottom: 0;margin-left: 15px"><strong>商品标题！电冰箱商品标题！电冰箱商品标题！电冰箱</strong></h3></div>
                     <div class="searchpic">
                         <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
                     </div>
                     <div class="searchcont">
 
-                        <div id="title"><h3 class="titchr" style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>商品标题！电冰箱</strong></h3></div>
-                        <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px;height:auto;">
-                            <span class="contchr" style="">
+
+                        <div id="Content" style="margin-top: 20px;margin-bottom: 0;margin-left: 20px;height:auto;">
+                            <span class="detailcont" style="">
                                 <div id="userid" style="margin-bottom:5px"><img class="rank" style=" margin-left: 0"></div>
 
-                                <div class="textcont">内容:iOS 是一个由苹果公司开发和发布
-
+                                <div class="textcont">内容:iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+                                    TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+                                    TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。
                                 </div>
 
                             </span>
                         </div>
 
                         <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
                         </div>
                         <div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px" class="contchr">
                             <span class="glyphicon glyphicon-heart-empty" style="margin-right: 10px"><text style="margin-left: 5px">同情122</span>
@@ -166,14 +187,15 @@
                 </div>
                 <hr style="margin-top:0">
                 <div class="itemsearch" style="">
+                    <div id="title"><h3 class="deatiltit" style="margin-top: 0;margin-bottom: 0;margin-left: 15px"><strong>商品标题！电冰箱商品标题！电冰箱商品标题！电冰箱</strong></h3></div>
                     <div class="searchpic">
                         <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
                     </div>
                     <div class="searchcont">
 
-                        <div id="title"><h3 class="titchr" style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>商品标题！电冰箱</strong></h3></div>
-                        <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px;height:auto;">
-                            <span class="contchr" style="">
+
+                        <div id="Content" style="margin-top: 20px;margin-bottom: 0;margin-left: 20px;height:auto;">
+                            <span class="detailcont" style="">
                                 <div id="userid" style="margin-bottom:5px"><img class="rank" style=" margin-left: 0"></div>
 
                                 <div class="textcont">内容:iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
@@ -185,9 +207,9 @@
                         </div>
 
                         <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
                         </div>
                         <div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px" class="contchr">
                             <span class="glyphicon glyphicon-heart-empty" style="margin-right: 10px"><text style="margin-left: 5px">同情122</span>
@@ -199,14 +221,15 @@
                 </div>
                 <hr style="margin-top:0">
                 <div class="itemsearch" style="">
+                    <div id="title"><h3 class="deatiltit" style="margin-top: 0;margin-bottom: 0;margin-left: 15px"><strong>商品标题！电冰箱商品标题！电冰箱商品标题！电冰箱</strong></h3></div>
                     <div class="searchpic">
                         <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
                     </div>
-                    <div class="searchcont" >
+                    <div class="searchcont">
 
-                        <div id="title"><h3 class="titchr" style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>商品标题！电冰箱</strong></h3></div>
-                        <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px;height:auto;">
-                            <span class="contchr" style="">
+
+                        <div id="Content" style="margin-top: 20px;margin-bottom: 0;margin-left: 20px;height:auto;">
+                            <span class="detailcont" style="">
                                 <div id="userid" style="margin-bottom:5px"><img class="rank" style=" margin-left: 0"></div>
 
                                 <div class="textcont">内容:iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
@@ -218,9 +241,9 @@
                         </div>
 
                         <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
                         </div>
                         <div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px" class="contchr">
                             <span class="glyphicon glyphicon-heart-empty" style="margin-right: 10px"><text style="margin-left: 5px">同情122</span>
@@ -232,14 +255,15 @@
                 </div>
                 <hr style="margin-top:0">
                 <div class="itemsearch" style="">
+                    <div id="title"><h3 class="deatiltit" style="margin-top: 0;margin-bottom: 0;margin-left: 15px"><strong>商品标题！电冰箱商品标题！电冰箱商品标题！电冰箱</strong></h3></div>
                     <div class="searchpic">
                         <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
                     </div>
-                    <div style="float: left;width: 550px;height:auto ;margin-bottom: 10px;">
+                    <div class="searchcont">
 
-                        <div id="title"><h3 class="titchr" style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>商品标题！电冰箱</strong></h3></div>
-                        <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px;height:auto;">
-                            <span class="contchr" style="">
+
+                        <div id="Content" style="margin-top: 20px;margin-bottom: 0;margin-left: 20px;height:auto;">
+                            <span class="detailcont" style="">
                                 <div id="userid" style="margin-bottom:5px"><img class="rank" style=" margin-left: 0"></div>
 
                                 <div class="textcont">内容:iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
@@ -251,9 +275,9 @@
                         </div>
 
                         <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
-                            <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                            <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
                         </div>
                         <div id="flag" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px" class="contchr">
                             <span class="glyphicon glyphicon-heart-empty" style="margin-right: 10px"><text style="margin-left: 5px">同情122</span>
@@ -263,7 +287,7 @@
                     </div>
 
                 </div>
-                <hr style="margin-top:15px">
+                <hr style="margin-top:0">
 
 
                 <div style=" margin-left: 500px;height: 34px">
@@ -285,6 +309,145 @@
             </div>
 
             <div class="tab-pane fade" id="ios">
+
+
+
+
+                <div id="tcdetail" style="height:auto;overflow: hidden;width: 780px"  class="detailcont">
+                    <div id="">
+                        <div id="pic" style="float: left;margin: 20px">
+                            <a href="#" class="avatar"  target="_blank" >
+                                <img class="img-circle" src="<?php echo base_url() . "img/head.jpg"; ?>">
+                            </a>
+                        </div>
+                        <div id='usertc' style="width:620px;float:left;margin-top: 20px">
+                            <div id="userid"><strong>用户ID</strong><img class="rank"></div>
+                            <div id="" class="textcont" style="width:620px;margin-top: 10px">
+                                iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+                                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+                                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。
+
+                            </div>
+                            <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 0px">
+                                <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                                <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                                <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                            </div>
+                            <div style="width:650px;margin-top: 5px">
+                                <text>时间</text>
+                                <span class="glyphicon glyphicon-heart-empty" style="margin-left: 300px;margin-right: 10px"><text style="margin-left: 5px">同情122</span>
+                                <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
+                                <a href="javascript:void(0);" value="assess_id1" onclick="showcomment(this);"><span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span></a>
+                            </div>
+                            <div class="" style="margin-top: 20px;width:650px;background-color: #E5E5E5;height: 90px">
+                                <div class="" style="float:left;margin: 10px">
+                                    <img style="width:70px;height: 70px" src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="">
+                                </div>
+                                <div class="" style="float:left">
+                                    <div id="title"><h3 class="deatiltit" style="margin-top: 35px;margin-bottom: 0;margin-left: 10px"><strong>商品标题！电冰箱商品标题！电冰箱商品标题</strong></h3></div>
+                                </div>
+                                <div style="margin-top:32px;margin-left: 85px;float: left">
+                                    <button type="button" class="btn btn-danger btn-xs" style="float: right"><span class="contbut">去看看</span><span class="glyphicon glyphicon-chevron-right"></span></button>
+                                </div>
+                            </div>
+                            <hr style="width:650px">
+                        </div>
+                    </div>
+                    <div id="">
+                        <div id="pic" style="float: left;margin: 20px">
+                            <a href="#" class="avatar"  target="_blank" >
+                                <img class="img-circle" src="<?php echo base_url() . "img/head.jpg"; ?>">
+                            </a>
+                        </div>
+                        <div id='usertc' style="width:620px;float:left;margin-top: 20px">
+                            <div id="userid">用户ID<img class="rank"></div>
+                            <div id="usercontent" class="textcont" style="width:620px;margin-top: 10px">
+                                iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+                                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+                                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。
+
+                            </div>
+                            <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 0px">
+                                <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                                <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                                <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                            </div>
+                            <div style="width:650px;margin-top: 5px">
+                                <text>时间</text>
+                                <span class="glyphicon glyphicon-heart-empty" style="margin-left: 300px;margin-right: 10px"><text style="margin-left: 5px">同情122</span>
+                                <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
+                                <a href="javascript:void(0);" value="assess_id1" onclick="showcomment(this);"><span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span></a>
+                            </div>
+                            <div class="" style="margin-top: 20px;width:650px;background-color: #E5E5E5;height: 90px">
+                                <div class="" style="float:left;margin: 10px">
+                                    <img style="width:70px;height: 70px" src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="">
+                                </div>
+                                <div class="" style="float:left">
+                                    <div id="title"><h3 class="deatiltit" style="margin-top: 35px;margin-bottom: 0;margin-left: 10px"><strong>商品标题！电冰箱商品标题！电冰箱商品标题</strong></h3></div>
+                                </div>
+                                <div style="margin-top:32px;margin-left: 85px;float: left">
+                                    <button type="button" class="btn btn-danger btn-xs" style="float: right"><span class="contbut">去看看</span><span class="glyphicon glyphicon-chevron-right"></span></button>
+                                </div>
+                            </div>
+                            <hr style="width:650px">
+                        </div>
+                    </div>
+                    <div id="">
+                        <div id="pic" style="float: left;margin: 20px">
+                            <a href="#" class="avatar"  target="_blank" >
+                                <img class="img-circle" src="<?php echo base_url() . "img/head.jpg"; ?>">
+                            </a>
+                        </div>
+                        <div id='usertc' style="width:620px;float:left;margin-top: 20px">
+                            <div id="userid">用户ID<img class="rank"></div>
+                            <div id="usercontent" class="textcont" style="width:620px;margin-top: 10px">
+                                iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+                                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple 
+                                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。
+
+                            </div>
+                            <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 0px">
+                                <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                                <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                                <button type="button" class="btn btn-default btn-xs" disabled="disabled" style="margin-right: 10px">Button</button>
+                            </div>
+                            <div style="width:650px;margin-top: 5px">
+                                <text>时间</text>
+                                <span class="glyphicon glyphicon-heart-empty" style="margin-left: 300px;margin-right: 10px"><text style="margin-left: 5px">同情122</span>
+                                <span class="glyphicon glyphicon-star-empty" style="margin-right: 10px"><text style="margin-left: 5px">收藏122</span>
+                                <a href="javascript:void(0);" value="assess_id1" onclick="showcomment(this);"><span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span></a>
+                            </div>
+                            <div class="" style="margin-top: 20px;width:650px;background-color: #E5E5E5;height: 90px">
+                                <div class="" style="float:left;margin: 10px">
+                                    <img style="width:70px;height: 70px" src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="">
+                                </div>
+                                <div class="" style="float:left">
+                                    <div id="title"><h3 class="deatiltit" style="margin-top: 35px;margin-bottom: 0;margin-left: 10px"><strong>商品标题！电冰箱商品标题！电冰箱商品标题</strong></h3></div>
+                                </div>
+                                <div style="margin-top:32px;margin-left: 85px;float: left">
+                                    <button type="button" class="btn btn-danger btn-xs" style="float: right"><span class="contbut">去看看</span><span class="glyphicon glyphicon-chevron-right"></span></button>
+                                </div>
+                            </div>
+                            <hr style="width:650px">
+                        </div>
+                    </div>
+                    <div style=" margin-left: 500px;height: 34px;float: left">
+                        <ul id="page" class="pagination" style="margin: 0;">
+                            <li>
+                                <a style="border: 0;padding-top: 0" href="#" page="2" onclick="page_link(this)">«上一页</a>
+                            </li>
+                            <li>
+                                <a style="border: 0;padding-top: 0" href="#" page="1" onclick="page_link(this)">1</a>
+                            </li>
+                            <li>
+                                <a style="border: 0;padding-top: 0" href="#" page="2" onclick="page_link(this)">2</a>
+                            </li>
+                            <li class="currentpage">
+                                <a id="curr" style="border: 0;padding-top: 0" href="#" page="3" onclick="page_link(this)">3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
 
             </div>
