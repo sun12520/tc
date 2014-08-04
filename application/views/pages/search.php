@@ -99,7 +99,7 @@
 <div class="container" style="width:1000px;padding: 0; ">
     <div id="left" class="leftcontent">
         <div style="padding-top: 10px;">
-            <a>首页</a>>“移动电源”的搜索结果
+            <a href="<?php echo site_url('assess/view/mainpage') ?>">首页</a>>“移动电源”的搜索结果
         </div>
 
         <div style="margin-top:10px;margin-bottom:20px;font-size: 18px">

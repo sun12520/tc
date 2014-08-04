@@ -93,10 +93,11 @@ class Assess extends CI_Controller {
         $picurl = base_url()."img/item.jpg";
         foreach ($ass_list as $row)
         {
-        $html .= '<div style="padding-top: 20px;padding-bottom: 20px"><div class="itempic"><img src="'.$picurl.'" alt="..." class="img-responsive"></div>
-                <div style="float: left;width: 630px;height: 247px"><div id="title"><a href="'.site_url('assess/detail').'"><h3 class="titchr" style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong>'.$row->title.'</strong></h3></a></div>
-                <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px;height:61px"><span class="contchr" style="">
-                <strong>'.$row->user_id.'：</strong>'.$row->Content.'</span></div><div id="comment" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
+        $html .= '<div style="padding-top: 20px;padding-bottom: 0;height: auto;overflow: hidden"><div id="title"><a href="'.site_url('assess/detail').'"><h3 class="titchr" style="margin-top: 0;margin-bottom: 20px"><strong>'.$row->title.'</strong></h3></a></div>'
+                . '<div class="itempic"><img src="'.$picurl.'" alt="..." class="img-responsive"></div>
+                <div style="float: left;width: 570px;height: auto;margin-bottom: 20px">
+                <div id="Content" style="margin-top: 0px;margin-bottom: 0;margin-left: 20px;height:auto"><span class="contchr" style="">
+                <strong>'.$row->user_id.'：</strong>'.$row->Content.'</span></div><div id="comment" style="margin-top: 30px;margin-bottom: 0;margin-left: 20px">
                 <span class="contchr"><strong>小编评语:</strong>'.$row->assess_id.'精神可嘉，必须赞！</span></div>
                 <div id="tag" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px">
                         <button type="button" class="btn btn-default btn-sm" disabled="disabled" style="margin-right: 10px">Button</button>
@@ -108,7 +109,7 @@ class Assess extends CI_Controller {
                 <span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span>
                 <button type="button" class="btn btn-danger" style="float: right"><span class="contbut">去看看</span><span class="glyphicon glyphicon-chevron-right"></span></button>
                 </div>
-                <hr style=" bottom: 0"></div></div>';
+                </div><hr style="width:850px;margin-bottom:0"></div>';
         
         }
         echo $html;

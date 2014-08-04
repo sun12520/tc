@@ -5747,6 +5747,7 @@ button.close {
     visibility:visible
 }
 .carousel-inner > .active {
+    //margin-right: 15px;
     z-index: 1;
     opacity: 1;
     visibility:visible;

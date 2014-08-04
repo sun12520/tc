@@ -19,7 +19,7 @@
 
 <div class="container" style="width:100%;padding: 0">
 
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" >
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -73,7 +73,7 @@
 <style type="text/css">
     .leftcontent
     {
-        width: 850px;
+        width: 780px;
         float: left;
         align:center;
         //margin-left: 50px
@@ -82,13 +82,14 @@
     .itempic
     {
         float: left;
-        width: 220px;
+        width: 180px;
+        margin-bottom: 20px;
         //height: 200px
     }
 
     .itempic > img
     {
-        height: 180px;
+        height: 150px;
     }
 
     .dh1
@@ -162,7 +163,7 @@
         position: absolute;
         width: 300px;
         height: 390px;
-        margin-left: 270px;
+        margin-left: 240px;
         color: #333333;
     }
 
@@ -173,7 +174,7 @@
         width: 300px;
         height: 390px;
         top: 0;
-        margin-left: 270px;
+        margin-left: 240px;
 
     }
     .dh1_active .detail .panel .panel-body
@@ -188,7 +189,7 @@
 
 
 </style>
-<div class="container" style="width: 1100px; padding: 0">
+<div class="container" style="width: 1000px; padding: 0">
     <div class="panel panel-default" style="position:absolute;z-index:100; top:118px;width: 240px;border: 0">
         <div class="panel-body" style="padding: 0">
             <div class="dh1" onmouseover="this.className = 'dh1_active'" onmouseout="this.className = 'dh1'">
@@ -302,20 +303,19 @@
         <div class="alert alert-warning" style=" margin-bottom: 0;margin-top: 438px;padding: 0;height: 50px" role="alert">...</div>
 
         <?php foreach ($ass_list as $row): ?>
-            <div style="padding-top: 20px;padding-bottom: 20px">
+            <div style="padding-top: 20px;padding-bottom: 0;height: auto;overflow: hidden">
+                <div id="title"><a href="<?php echo site_url('assess/detail'); ?>"><h3 class="titchr" style="margin-top: 0;margin-bottom: 20px;"><strong><?php echo $row->title ?></strong></h3></a></div>
                 <div class="itempic">
                     <img src="<?php echo base_url() . "img/item.jpg"; ?>" alt="..." class="img-responsive">
                 </div>
-                <div style="float: left;width: 630px;height: 247px">
-
-                    <div id="title"><a href="<?php echo site_url('assess/detail'); ?>"><h3 class="titchr" style="margin-top: 0;margin-bottom: 0;margin-left: 20px"><strong><?php echo $row->title ?></strong></h3></a></div>
-                    <div id="Content" style="margin-top: 10px;margin-bottom: 0;margin-left: 20px;height:41px">
+                <div style="float: left;width: 570px;height: auto;margin-bottom: 20px">
+                    <div id="Content" style="margin-top: 0px;margin-bottom: 0;margin-left: 20px;height:auto">
                         <span class="contchr" style="">
                             <strong><?php echo $row->user_id ?>：</strong>
                             <?php echo $row->Content ?>
                         </span>
                     </div>
-                    <div id="comment" style="margin-top: 15px;margin-bottom: 0;margin-left: 20px">
+                    <div id="comment" style="margin-top: 30px;margin-bottom: 0;margin-left: 20px">
                         <span class="contchr">
                             <strong>小编评语:</strong>
                             <?php echo $row->assess_id ?>精神可嘉，必须赞！
@@ -333,9 +333,10 @@
                         <span class="glyphicon glyphicon-comment" style="margin-right: 10px"><text style="margin-left: 5px">评论122</span>
                         <button type="button" class="btn btn-danger" style="float: right"><span class="contbut">去看看</span><span class="glyphicon glyphicon-chevron-right"></span></button>
                     </div>
-                    <hr style=" bottom: 0">
+                    
 
                 </div>
+                <hr style="width:850px;margin-bottom:0">
             </div>
         <?php endforeach; ?>
 

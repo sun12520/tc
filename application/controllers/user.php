@@ -51,22 +51,37 @@ class user extends CI_Controller {
     function login() {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
+        $checkcode = $this->input->post('checkcode');
         $url = $this->input->post('url');
 
-        $data = array(
-            'username' => $username,
-            'password' => $password
-        );
 
-        $result = $this->Do_user->checkPasswd($username, $password);
-        if ($result) {
-            $data['user_id'] = $result;
-            $this->session->set_userdata($data);
-            if ($url != '') {
-                redirect($url);
+        $ip = $this->getIP();
+        $code = md5($ip . 'grandcloudcn');
+
+        //echo $checkcode;
+
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+        if ($checkcode != $_SESSION[$code]) {
+            echo FALSE;
+        } else {
+            $data = array(
+                'username' => $username,
+                'password' => $password
+            );
+
+            $result = $this->Do_user->checkPasswd($username, $password);
+            if ($result) {
+                $data['user_id'] = $result;
+                $this->session->set_userdata($data);
+                if ($url != '') {
+                    redirect($url);
+                }
+                echo TRUE;
             }
         }
-        redirect('assess/view/mainpage');
+        //redirect('assess/view/mainpage');
         //echo $this->session->userdata('username');
         //echo $this->session->userdata('user_id');
         //echo $this->session->userdata('password');
@@ -94,19 +109,47 @@ class user extends CI_Controller {
     function reg() {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
+        $email = $this->input->post('email');
+        $checkcode = $this->input->post('checkcode');
 
-        //echo $username;
-        //echo $password;
 
-        $user_id = $this->Do_user->regUser($username, $password);
-        //echo $user_id;
-        $data = array(
-            'username' => $username,
-            'password' => $password,
-            'user_id' => $user_id,
-        );
-        $this->session->set_userdata($data);
-        redirect('assess/view/mainpage');
+        $ip = $this->getIP();
+        $code = md5($ip . 'grandcloudcn');
+
+        //echo $checkcode;
+
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
+        //echo $_SESSION[$code];
+        if ($checkcode != $_SESSION[$code]) {
+            echo FALSE;
+        } else {
+            $user_id = $this->Do_user->regUser($username, $password, $email);
+            //echo $user_id;
+            $data = array(
+                'username' => $username,
+                'password' => $password,
+                'user_id' => $user_id,
+            );
+            $this->session->set_userdata($data);
+            echo TRUE;
+            //redirect('assess/view/mainpage');
+        }
+    }
+
+    function getIP() {
+        global $ip;
+        if (getenv("HTTP_CLIENT_IP"))
+            $ip = getenv("HTTP_CLIENT_IP");
+        else if (getenv("HTTP_X_FORWARDED_FOR"))
+            $ip = getenv("HTTP_X_FORWARDED_FOR");
+        else if (getenv("REMOTE_ADDR"))
+            $ip = getenv("REMOTE_ADDR");
+        else
+            $ip = "Unknow";
+        return $ip;
     }
 
 }
