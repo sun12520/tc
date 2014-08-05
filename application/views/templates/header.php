@@ -445,7 +445,7 @@
 
 
         <div class="topbar" style="width:100%">
-            <div class="container" >
+            <div class="container" style="width:1000px" >
                 <div class="bar">
                     <ul class="barul">
                         <a href="<?php echo site_url('assess/view/mainpage') ?>"><li class="title" onmouseover="this.className = 'title_active'" onmouseout="this.className = 'title'">首页</li></a>
@@ -456,7 +456,7 @@
                         <?php
                         if (!$username) {
                             ?>
-                            <a href = "#" data-toggle = "modal" data-target = "#Login"><li class = "title_right" style = " margin-left:700px" onmouseover = "this.className = 'title_right_active'" onmouseout = "this.className = 'title_right'">登录</li></a>
+                            <a href = "#" data-toggle = "modal" data-target = "#Login"><li class = "title_right" style = " margin-left:560px" onmouseover = "this.className = 'title_right_active'" onmouseout = "this.className = 'title_right'">登录</li></a>
                             <a href = "#" data-toggle = "modal" data-target = "#Regin"><li class = "title_right" onmouseover = "this.className = 'title_right_active'" onmouseout = "this.className = 'title_right'">注册</li></a>
                             <?php
                         } else {
@@ -473,12 +473,12 @@
         </div>
 
         <div class="searchbar" >
-            <div class="container" style="width:1200px">
+            <div class="container" style="width:1000px">
                 <div class="bar">
 
-                    <a href="#"><img style="margin-top: 15px;margin-left: 60px;float: left" src="<?php echo base_url() . "img/less-logo-large.png"; ?>"></a>
+                    <a href="#"><img style="margin-top: 15px;margin-left: 0px;float: left" src="<?php echo base_url() . "img/less-logo-large.png"; ?>"></a>
 
-                    <div class="form-group has-feedback" style="float:left;margin-top: 25px;margin-left: 40px;width: 665px">
+                    <div class="form-group has-feedback" style="float:left;margin-top: 25px;margin-left: 40px;width: 570px">
                         <input type="text" class="form-control" id="inputSuccess2" placeholder="Search">
                             <a href="<?php echo site_url('search'); ?>"><span class="glyphicon glyphicon-search form-control-feedback" style="top:1px"></span></a>
                     </div>
